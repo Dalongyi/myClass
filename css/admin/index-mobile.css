@@ -1,0 +1,658 @@
+/* 저작자 : 조영인 */
+/* === layout ============================= */
+/* --- header ------------------------------ */
+.header{
+    /* layout */
+    height: 44px;
+    background-color: black;
+    padding-left: 19px;
+    padding-right: 15px;
+
+    /* item layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- daily-sales ------------------------------ */
+.daily-sales{
+    /* layout */
+    height: 210px;
+    padding-left: 23px;
+    padding-right: 36px;
+
+    /* item layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* --- today-sales ------------------------------ */
+.today-sales{
+    /* layout */
+    padding-top: 40px;
+    height: 282px;
+
+    /* item layout */
+    position: relative;
+}
+
+/* --- notice-order-manage ------------------------------ */
+.notice-order-manage{
+    height: 213px;
+}
+
+/* === content block ============================= */
+/* --- header ------------------------------ */
+.header>h1{
+    /* text */
+    font-family: "휴먼엑스포";
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.header>div>a{
+    /* text */
+    text-indent: -9999px;
+
+    /* layout */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23' height='16' viewBox='0 0 23 16'%3E%3Cg id='Icon_feather-menu' data-name='Icon feather-menu' transform='translate(-3.5 -8)'%3E%3Cpath id='패스_5' data-name='패스 5' d='M4.5,18h21' transform='translate(0 -2)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cpath id='패스_6' data-name='패스 6' d='M4.5,9h21' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cpath id='패스_7' data-name='패스 7' d='M4.5,27h21' transform='translate(0 -4)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    margin-top: 7px;
+
+    display: inline-block;
+    width: 21px;
+    height: 14px;
+}
+
+/* --- daily-sales ------------------------------ */
+.daily-sales>header{
+    /* layout */
+    margin-top: 20px;
+    margin-left: 7px;
+    width: 300px;
+
+    /* item layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .daily-sales>header>h1{
+        /* text */
+        font-family: "본고딕 KR";
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .daily-sales>header>div{
+        /* layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .daily-sales>header>div>span{
+        /* text */
+        font-family: "본고딕 KR";
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .daily-sales>header>div>a{
+        /* text */
+        text-indent: -9999px;
+
+        /* layout */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M13.184,11.816l4.255-4.251a.8.8,0,0,0,0-1.135.81.81,0,0,0-1.138,0l-4.82,4.817a.8.8,0,0,0-.023,1.108L16.3,17.2a.8.8,0,0,0,1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        margin-top: 5px;
+
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+
+    }
+
+    .daily-sales>header>div>a:nth-child(3){
+        /* layout */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M15.737,11.816,11.482,7.565a.8.8,0,0,1,0-1.135.81.81,0,0,1,1.138,0l4.82,4.817a.8.8,0,0,1,.023,1.108l-4.84,4.85a.8.8,0,1,1-1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+
+    .daily-sales .daily-chart{
+        /* layout */
+        width: 300px;
+        height: 166px;
+        display: grid;
+        grid-template: 
+            "f" 1fr
+            "e" 1fr
+            "d" 1fr
+            "c" 1fr
+            "b" 1fr
+            "a" 1fr
+            / 1fr;
+    }
+        .daily-sales .daily-chart>div{
+            /* item layout */
+            display: grid;
+            grid-template-rows: 30px;
+            grid-template-columns: repeat(9, 1fr);
+        }
+
+        .daily-sales .daily-chart>div:nth-child(1){
+            grid-area: f;
+        }
+        .daily-sales .daily-chart>div:nth-child(2){
+            grid-area: e;
+        }
+        .daily-sales .daily-chart>div:nth-child(3){
+            grid-area: d;
+        }
+        .daily-sales .daily-chart>div:nth-child(4){
+            grid-area: c;
+        }
+        .daily-sales .daily-chart>div:nth-child(5){
+            grid-area: b;
+        }
+        .daily-sales .daily-chart>div:nth-child(6){
+            grid-area: a;
+        }
+
+            .daily-sales .daily-chart>div:nth-child(n+1):nth-child(-n+5)>div:first-child{
+                /* text */
+                font-family: "본고딕 KR";
+                font-size: 14px;
+                font-weight: bold;
+
+                /* layout */
+                position: relative;
+                top: -10px;
+            }
+
+            .daily-sales .daily-chart>div:nth-child(-n+5)>div:nth-child(n+2){
+                /* layout */
+                border-right: 1px dotted #707070;
+            }
+
+            .daily-sales .daily-chart>div:nth-child(-n+5)>div:nth-child(2){
+                /* layout */
+                border-left: 1px solid#707070;
+            }
+            .daily-sales .daily-chart>div:nth-child(n+1):nth-child(-n+5)>div:nth-child(n+2):nth-child(-n+9){
+                /* layout */
+                border-top: 1px dotted#707070;
+            }
+
+            .daily-sales .daily-chart>div:nth-child(5)>div:nth-child(n+2):nth-child(-n+9){
+                /* layout */
+                border-bottom: 1px solid #707070;
+            }
+        
+        .daily-sales .daily-chart>div:nth-child(2){
+            /* text */
+            text-indent: -7px;
+        }
+        
+        .daily-sales .daily-chart>div:nth-child(6){
+            /* text */
+            font-family: "본고딕 KR";
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+            .daily-sales .daily-chart>div:nth-child(6)>div{
+                /* layout */
+                position: relative;
+                left: 25px;
+                z-index: 1;
+            }
+
+        .daily-sales .daily-chart>div:nth-child(6)>div:nth-child(1), .daily-chart>div:nth-child(6)>div:nth-child(9){
+            /* layout */
+            margin-top: -3px;
+        }
+
+        .daily-sales .daily-chart>div:nth-child(6) a{
+            /* text */
+            text-indent: -9999px;
+
+            /* layout */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M13.184,11.816l4.255-4.251a.8.8,0,0,0,0-1.135.81.81,0,0,0-1.138,0l-4.82,4.817a.8.8,0,0,0-.023,1.108L16.3,17.2a.8.8,0,0,0,1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: center;
+
+            position: relative;
+
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .daily-sales .daily-chart>div:nth-child(6)>div:nth-child(9)>a{
+            /* layout */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M15.737,11.816,11.482,7.565a.8.8,0,0,1,0-1.135.81.81,0,0,1,1.138,0l4.82,4.817a.8.8,0,0,1,.023,1.108l-4.84,4.85a.8.8,0,1,1-1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+            left: -10px;
+        }
+
+        .price1, .price2{
+            position: relative;
+        }
+
+        .price1>div, .price2>div{
+            /* text */
+            font-family: "본고딕 KR";
+            font-size: 12px;
+            font-weight: bold;
+            color: #D68814;
+
+            /* layout */
+            position: absolute;
+        }
+
+        .price1>div:first-child{
+            /* layout */
+            top: -5px;
+            left: 10px;
+        }
+
+        .price1 .point1{
+            /* layout */
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid #707070;
+
+            position: absolute;
+            left: 28px;
+            top: 14px;
+        }
+
+        .price2>div:first-child{
+            /* layout */
+            top: -25px;
+            left: 10px;
+        }
+
+        .price2 .point2{
+            /* layout */
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background-color: #A24F17;
+            border-radius: 50px;
+            border: 1px solid #707070;
+
+            position: absolute;
+            top: -5px;
+            left: 29px;
+        }
+
+        .line1, .line2, .line3, .line4, .line5, .line6, .line7{
+            /* item layout */
+            position: relative;
+        }
+
+        .line1>div {
+            /* layout */
+            display: inline-block;
+            width: 33px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -1px;
+            top: 25px;
+            transform: rotate(-10deg);
+        }
+
+        .line2>div {
+            /* layout */
+            display: inline-block;
+            width: 34px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -1px;
+            top: 25px;
+            transform: rotate(10deg);
+        }
+
+        .line3>div {
+            /* layout */
+            display: inline-block;
+            width: 39px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -3px;
+            top: 18px;
+            transform: rotate(-30deg);
+        }
+
+        .line4>div {
+            /* layout */
+            display: inline-block;
+            width: 35px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -1px;
+            top: 5px;
+            transform: rotate(-11deg);
+        }
+
+        .line5>div {
+            /* layout */
+            display: inline-block;
+            width: 37px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -2px;
+            top: 25px;
+            transform: rotate(-23deg);
+        }
+
+        .line6>div:nth-child(3) {
+            /* layout */
+            display: inline-block;
+            width: 33px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -1px;
+            top: 18px;
+            transform: rotate(0deg);
+
+            z-index: -1;
+        }
+
+        .line7>div {
+            /* layout */
+            display: inline-block;
+            width: 58px;
+            border-bottom: 2px solid #00D02A;
+
+            position: absolute;
+            left: -13px;
+            top: 37px;
+            transform: rotate(50deg);
+
+            z-index: -1;
+        }
+
+/* --- today-sales ------------------------------ */
+.today-sales{
+    /* item layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.today-sales>header{
+    /* layout */
+    width: 360px;
+    box-sizing: border-box;
+
+    /* item layout */
+    padding-left: 23px;
+    padding-right: 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .today-sales>header>h1{
+        /* text */
+        font-family: "본고딕 KR";
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+    }
+
+    .today-sales>header>div:nth-child(2){
+        /* item layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+        .today-sales>header>div:nth-child(2)>span{
+            /* text */
+            font-family: "본고딕 KR";
+            font-size: 13px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .today-sales>header>div:nth-child(2)>a{
+            /* text */
+            text-indent: -9999px;
+
+            /* layout */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M13.184,11.816l4.255-4.251a.8.8,0,0,0,0-1.135.81.81,0,0,0-1.138,0l-4.82,4.817a.8.8,0,0,0-.023,1.108L16.3,17.2a.8.8,0,0,0,1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            margin-top: 5px;
+
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+        }
+
+        .today-sales>header>div:nth-child(2)>a:nth-child(3){
+            /* layout */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M15.737,11.816,11.482,7.565a.8.8,0,0,1,0-1.135.81.81,0,0,1,1.138,0l4.82,4.817a.8.8,0,0,1,.023,1.108l-4.84,4.85a.8.8,0,1,1-1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+        }
+
+    .today-sales>header>div:nth-child(3){
+        /* layout */
+        padding: 2px 17px 4px 18px;
+        background-color: #D68814;
+
+        display: inline-block;
+        border-radius: 10px 0 10px 0;
+    }
+
+        .today-sales>header>div:nth-child(3)>a{
+            /* text */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+    .today-sales>div:nth-child(2){
+        /* layout */
+        position: absolute;
+        top: 180px;
+        padding-left: 6px;
+        padding-right: 17px;
+        width: 360px;
+        box-sizing: border-box;
+
+        /* item layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .today-sales>div:nth-child(2)>a{
+            /* text */
+            text-indent: -9999px;
+
+            /* layout */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M13.184,11.816l4.255-4.251a.8.8,0,0,0,0-1.135.81.81,0,0,0-1.138,0l-4.82,4.817a.8.8,0,0,0-.023,1.108L16.3,17.2a.8.8,0,0,0,1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+        }
+
+        .today-sales>div:nth-child(2)>a:nth-child(2){
+            /* layout */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cfilter id='타원_3' x='0' y='0' width='40' height='40' filterUnits='userSpaceOnUse'%3E%3CfeOffset dy='3' input='SourceAlpha'/%3E%3CfeGaussianBlur stdDeviation='3' result='blur'/%3E%3CfeFlood flood-opacity='0.161'/%3E%3CfeComposite operator='in' in2='blur'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cg id='오른쪽_화살표' data-name='오른쪽 화살표' transform='translate(9 6)'%3E%3Cg transform='matrix(1, 0, 0, 1, -9, -6)' filter='url(%23타원_3)'%3E%3Cg id='타원_3-2' data-name='타원 3' transform='translate(9 6)' fill='%23fff' stroke='%23707070' stroke-width='0.5'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.75' fill='none'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Icon_ionic-ios-arrow-forward' data-name='Icon ionic-ios-arrow-forward' d='M15.737,11.816,11.482,7.565a.8.8,0,0,1,0-1.135.81.81,0,0,1,1.138,0l4.82,4.817a.8.8,0,0,1,.023,1.108l-4.84,4.85a.8.8,0,1,1-1.138-1.135Z' transform='translate(-3.461 -0.818)'/%3E%3C/g%3E%3C/svg%3E%0A");
+        }
+
+    .today-sales>ul{
+        /* item layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .today-sales>ul>li{
+            /* layoyt */
+            margin-top: 20px;
+            width: 268px;
+            height: 89px;
+
+            /* item layout */
+            display: grid;
+            grid-template: 
+                "image order-time order-time" 1fr
+                "image order-total order-total-price" 1fr
+                "image order-specific order-specific" 1fr
+                "name order-specific order-specific" 1fr
+                / 70px 1fr 3fr;
+            grid-column-gap: 20px;
+        }
+
+            .today-sales>ul>li>img{
+                /* layout */
+                grid-area: image;
+                width: 68px;
+                height: 68px;
+                border-radius: 50px;
+                /* border-radius: 1px solid #707070; */
+            }
+
+            .today-sales>ul>li>span:nth-child(2){
+                /* text */
+                font-family: "본고딕 KR";
+                font-size: 14px;
+                font-weight: normal;
+
+                text-align: center;
+
+                /* layout */
+                grid-area: name;
+            }
+
+            .today-sales>ul>li>span:nth-child(3){
+                /* text */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 13px;
+                font-weight: normal;
+
+                /* layout */
+                grid-area: order-time;
+            }
+
+            .today-sales>ul>li>span:nth-child(4){
+                /* text */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 13px;
+                font-weight: normal;
+
+                /* layout */
+                grid-area: order-total;
+            }
+
+            .today-sales>ul>li>span:nth-child(5){
+                /* text */
+                font-family: "본고딕 KR";
+                font-size: 16px;
+                font-weight: bold;
+
+                /* layout */
+                margin-top: -3px;
+                margin-left: -14px;
+                grid-area: order-total-price;
+            }
+
+            .today-sales>ul>li>a{
+                /* text */
+                font-family: "본고딕 KR";
+                font-size: 12px;
+                font-weight: normal;
+                color: #fff;
+
+                text-align: center;
+                line-height: 22px;
+
+                /* layout */
+                grid-area: order-specific;
+
+                margin-top: 4px;
+
+                background-color: rgba(0, 95, 225, 0.7);
+                display: inline-block;
+                width: 104px;
+                height: 22px;
+                border-radius: 22px;
+            }
+
+/* --- notice-order-manage ------------------------------ */
+.notice-order-manage ul{
+    /* layout */
+    padding-top: 30px;
+
+    /* item layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+    .notice-order-manage ul>li:first-child>a{
+        /* text */
+        text-indent: -9999px;
+
+        /* layout */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg id='그룹_66' data-name='그룹 66' transform='translate(-33 -595)'%3E%3Crect id='사각형_56' data-name='사각형 56' width='130' height='130' rx='20' transform='translate(33 595)' fill='%23d68814'/%3E%3Cg id='그룹_60' data-name='그룹 60' transform='translate(-107 398.057)' opacity='0.5'%3E%3Ccircle id='타원_9' data-name='타원 9' cx='25' cy='25' r='25' transform='translate(180 222.943)' fill='%23fff'/%3E%3Cline id='선_15' data-name='선 15' x2='29.475' transform='translate(190.316 247.889)' fill='none' stroke='%23707070' stroke-width='1'/%3E%3Cline id='선_16' data-name='선 16' y1='29.475' transform='translate(205.054 233.151)' fill='none' stroke='%23707070' stroke-width='1'/%3E%3C/g%3E%3Ctext id='공지추가' transform='translate(66 701)' fill='%23f9f9f9' font-size='26' font-family='NanumBrush, Nanum Brush Script'%3E%3Ctspan x='0' y='0'%3E공지추가%3C/tspan%3E%3C/text%3E%3C/g%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+    }
+
+    .notice-order-manage ul>li:nth-child(2)>a{
+        /* text */
+        text-indent: -9999px;
+
+        /* layout */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg id='그룹_67' data-name='그룹 67' transform='translate(-199 -595)'%3E%3Crect id='사각형_57' data-name='사각형 57' width='130' height='130' rx='20' transform='translate(199 595)' fill='%234c8eff'/%3E%3Ctext id='주문관리' transform='translate(235 701)' fill='%23f9f9f9' font-size='26' font-family='NanumBrush, Nanum Brush Script'%3E%3Ctspan x='0' y='0'%3E주문관리%3C/tspan%3E%3C/text%3E%3Cpath id='Icon_awesome-coffee' data-name='Icon awesome-coffee' d='M16.2,31.945H32.4a8.1,8.1,0,0,0,8.1-8.1h2.7a10.8,10.8,0,0,0,0-21.6H10.124A2.02,2.02,0,0,0,8.1,4.275V23.846A8.1,8.1,0,0,0,16.2,31.945Zm27-24.3a5.4,5.4,0,0,1,0,10.8h-2.7V7.649Zm4.024,32.394H4.075c-4.016,0-5.146-5.4-3.037-5.4H50.246c2.109,0,1,5.4-3.029,5.4Z' transform='translate(238.006 625.132)' opacity='0.46'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        margin-left: 16px;
+
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+    }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <section>
+        <h1>회원가입</h1>
+        <form action="singup">
+            <fieldset>
+                <legend>회원가입정보</legend>
+                <div>
+                    <label>아이디</label>
+                    <input name="uid" placeholder="아이디를 입력하세요" autofocus autocomplete="off" list="animal"> 
+                    <datalist id="animal">
+                        <option value="강아지">
+                        <option value="고양이">
+                        <option value="거북이">
+                    </datalist>
+                    <output>유효하지 않습니다.</output>
+                </div>
+
+                <div>
+                    <label>몸무게</label>
+                    <input type="text" name="w" min="10" max="300">
+                    <output>유효하지 않습니다.</output>
+                </div>
+
+                <div>
+                    <label>전화번호</label>
+                    <input name="phone" placeholder="예:010-2345-3456" required pattern="01[01689]-\d{3,4}-\d{4}">                    
+                    <output>유효하지 않습니다.</output>
+                </div>
+
+                <div>
+                    <label>이메일</label>
+                    <input name="uid">
+                    <output>유효하지 않습니다.</output>
+                </div>
+                <div>
+                    <label>비밀번호</label><input type="password" name="pwd">
+                    <output>유효하지 않습니다.</output>
+                </div>
+                <div>
+                    <label>비밀번호 확인</label><input>
+                    <output>비밀번호가 일치하지 않습니다.</output>
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <legend>가장 좋아하는 취미</legend>
+                <input name="favorite" id="music" type="radio" value="1" ><label for="music">음악감상</label>
+                <input name="favorite" type="radio" value="2"><label>낚시</label>
+                <input name="favorite" type="radio" value="3" ><label>등산</label>
+
+                <select name="f">
+                    <option value="0">선택</option>
+                    <option value="1">음악감상</option>
+                    <option value="2">낚시</option>
+                    <option value="3">등산</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>특기</legend>
+                <input name="a" id="music" type="checkbox" value="음악감상" ><label for="music">달리기</label>
+                <input name="a" type="checkbox" value="낚시"><label>노래하기</label>
+                <input name="a" type="checkbox" value="등산" ><label>등산</label>
+
+                <select multiple name="g">
+                
+                    <option value="1">음악감상</option>
+                    <option value="2">낚시</option>
+                    <option value="3">등산</option>
+                
+                </select>
+            </fieldset>
+            <fieldset>
+                <input type="date" name="d">
+                <input type="range" name="r">
+                <input type="color" name="c">
+                <input type="button" value="click">
+                <button>click</button>
+                
+                <meter min="0" max="100" value="30">
+                50%
+                </meter>
+                <progress max="100" value="50">
+            </fieldset>
+
+            <input type="submit" value="회원가입">
+        </form>
+    </section>
+</body>
+</html>

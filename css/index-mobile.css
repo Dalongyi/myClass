@@ -1,0 +1,298 @@
+
+/* ==== outer block ===================================================== */
+
+.header{
+    width: 100%;
+    height: 50px;   
+    background-color: #0007;
+
+    /* layout */
+    position: fixed;
+    top:0px;
+    
+    z-index: 999;
+
+    /* layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 15px;
+    box-sizing: border-box;
+}
+
+.cafe{
+    /* text */
+    
+    /* layout */
+    padding-top: 50px;
+    height: 530px;
+    background:#AF9878 url("../images/2.jpg") no-repeat
+                -245px/cover; 
+
+    /* item layout */
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    /* effect */
+    animation: cafe-bg-h-slide 200s linear infinite;
+    
+}
+
+    .cafe-title{
+        margin-left: -14px;
+        margin-top: 23px;
+    }
+
+    
+    .cafe-menu-all{
+        /* display: inline-block; */
+        margin-top: auto;
+        /* align-items: flex-start; */
+        align-self: flex-end;
+        margin-right: 5px;
+    }
+
+    .rland-location{
+        margin-top: 19px;
+    }
+
+
+.rland{
+    /* layout */
+    padding:10px 0;
+    /* background-color: black; */
+    /* height: 530px; */
+    /* background-image: radial-gradient( 
+        circle closest-side at 100px 100px,
+        #ff0000 33%,#00ff00 33% 66%,#0000ff 66% 100%); */
+
+    /* item layout */
+}
+
+.rland>div{
+    display: grid;
+    grid-template: 100px / repeat(auto-fill, minmax(360px, auto));
+}
+
+.spot{
+    height: 350px;
+    background:url("../images/b23.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background:url("../images/b23.jpg") 
+                no-repeat
+                center / cover; */
+}
+.visited-review{}
+.blog{}
+.location{}
+.business-hour{}
+.footer{}
+    
+/* === content block ======================================== */
+
+
+.header-title{
+    display: inline-block;
+    font-family: 'Segoe UI', "굴림", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color:#fff;
+    font-stretch: ultra-expanded;
+}
+
+.cafe-title{
+    /* content style */
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 26px;
+    color:#fff;
+    font-weight: normal;
+
+    /* content box style */
+    width: 248px;
+    height: 45px;
+    background-color: rgba(0,0,0,0.29);
+    border-radius: 0 20px 20px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+/* ---- top-menu --------------------------------------------------------------- */
+
+.top-menu{
+    display: inline-block;
+    padding: 31px 0;
+    background-color: #fff7;
+}
+
+.top-menu>ul{  
+    /* width: 1000px; */
+    margin: 0;
+    padding: 0;
+    border: 1px sold green;
+
+    display: inline-block;
+    overflow: hidden;
+
+    display: flex;
+}
+
+.top-menu>ul>li{
+    /* float:left; */
+    list-style-type: none;
+    width:100px;
+    height: 100px;
+    /* border: 1px solid red; */
+
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.top-menu>ul>li:first-child{
+    margin-left: 24px;
+}
+
+.top-menu>ul>li>img{
+    display: inline-block;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.top-menu>ul>li>a{    
+    text-align: center;
+    color:#fff;
+    background-color: #0006;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width:100%;
+    height:100%;
+    /* margin-top: 0%; */
+    /* top:0px;  */
+    /* border: 1px solid blue; */
+     
+    /* transition-property: top;
+    transition-duration: 400ms; */
+    transition: 1s;
+}
+
+.top-menu>ul>li:hover>a{
+    transform: translateY(-100px);
+    /* position: relative; */
+
+
+    /* margin-top: -100%; */
+    /* top:-100px;  */
+    
+
+    /* margin-top:-100px; */
+
+    /* margin:; */    
+
+    /* translate:; */
+}
+
+/* ---- rland ----------------------------------------- */
+
+.rland>h1{
+    display: none;
+}
+
+
+.rland article{
+
+    /* text */
+
+    /* layout */
+    padding:10px 27px;
+    
+
+    /* item layout */
+    display: grid;  
+    grid-template: 
+    "img title"     35px
+    "img content"   65px
+    / 100px 1fr;
+
+    column-gap: 20px;
+
+    /* effect */
+
+
+    cursor: pointer;
+
+    transition: background-color 5s, 
+                transform 1s;
+
+}
+
+.rland article.get-in{
+    opacity: 0.2;
+    transform: translateX(-80%);
+}
+
+.rland article:nth-child(2n+1){
+        
+    grid-template: 
+    "title img"     35px
+    "content img"   65px
+    / 1fr 100px;
+
+    column-gap: 20px;
+}
+
+.rland article>h1{
+    /* text */
+    font-family: 'Nanum Pen Script', cursive;
+    font-weight: normal;
+    font-size: 22px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    grid-area: title;
+    align-self: center;
+}
+.rland article>div{
+    grid-area: img;
+}
+
+.rland article>div>img{
+    border-radius: 20px 0 0 20px;
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: border-radius 600ms;
+}
+
+.rland article:nth-child(2n+1)>div>img{
+    
+    border-radius: 0 20px 20px 0;
+}
+
+.rland article:hover{
+    background-color: yellowgreen;
+}
+.rland article:hover>div>img{
+    border-radius: 0;
+}
+
+.rland article>p{
+    /* text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+
+    /* layout */
+    grid-area: content;
+}
+

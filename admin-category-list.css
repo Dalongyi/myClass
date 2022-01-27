@@ -1,0 +1,81 @@
+/* 병민 */
+body {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+  width: 300px;
+  height: 500px;
+  border: 1px solid gray;
+  text-align: left;
+  background-color: white;
+}
+
+header {
+  width: 100%;
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+.admin-page-title {
+  width: 220px;
+  font-size: 17px;
+  display: inline-block;
+  padding: 7px 20px 5px 20px;
+  margin: 0;
+  left: 0px;
+}
+.menu {
+  padding: 5px;
+}
+
+.category-title {
+  position: relative;
+  left: 17px;
+  width: 200px;
+  font-size: 20px;
+}
+hr {
+  width: 250px;
+  border: 2px solid rgb(233, 233, 233);
+}
+
+ul.category-ul {
+  list-style: none;
+  padding: 0;
+}
+.category-list {
+  font-size: 12px;
+  padding: 7px 7px 7px 15px;
+  margin: 20px;
+  background-color: #feead4;
+  border-radius: 15px;
+}
+.list-content {
+  display: inline-block;
+  width: 190px;
+}
+.list-delete-button,
+.list-update-button {
+  padding: 3px;
+  opacity: 0.4;
+}
+.list-delete-button {
+  color: #f1351c;
+}
+.list-update-button {
+  color: #f38b36;
+}
+
+.category-add {
+  position: absolute;
+  bottom: 15px;
+  left: 15%;
+  width: 200px;
+  padding: 7px;
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  background-color: #e48435;
+}

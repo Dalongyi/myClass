@@ -1,0 +1,23 @@
+@media screen and (min-width: 720px) {
+    
+    /* ==== layout =================================================== */
+    
+  
+    /* ==== content block ============================================================= */
+
+
+    /* ---- top-menu ------------------------------ */
+    .top-menu{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .top-menu>ul{ 
+        width:600px;
+    }
+
+    /* ---- rland ----------------------------------------------- */
+    .rland>h1{
+        display: initial;
+    }
+}

@@ -1,0 +1,121 @@
+<!-- 저작자: 김수하 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/member/index.css" type="text/css">
+    <title>회원 Home 페이지</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="d-none">회원 페이지</h1>
+        
+        <div><a class="img-btn-menu" href="">메뉴버튼</a></div> 
+    </header>
+    
+    <div class="header-welcome-bg-box">
+        <nav class="updated-notice">
+             <h1 class="d-none">새로운 공지사항</h1>
+            <div class="notice-info">
+                <a href="">새로운 메뉴를 확인해보세요 &Hat;.&Hat;</a>
+            </div>
+            <div class="d-none"><a href="">닫기</a></div>
+        </nav>
+        
+        <article class="welcome">
+            <h1 class="d-none">환영인사</h1>
+            <p>
+                4계절이 아름다운 알랜드를<br>
+                찾아주셔서 항상 감사합니다.
+            </p>
+            
+            <div><a class="img-btn-share" href="">공유하기</a></div>
+        </article>
+    </div>
+        
+    
+    <!-- ------main------------------------------------------------------- -->
+    <main>
+        <section class="favorite-menu">
+            <header>
+                <h1>홍길동님이 이전에 즐기셨던 메뉴</h1>
+                <div><a class="btn-leaf" href="">전체메뉴</a></div>
+            </header>
+
+            <div class="menu-list">
+                <div>알랜드 커피</div>
+                <div>4,500원</div>
+                <div><img src="/images/18.jpg" alt="알랜드 커피"></div>
+                
+                <form>
+                    <fieldset>
+                        <legend class="d-none">메뉴 옵션</legend>
+                        <input type="checkbox" id="iced" name="menu-opt" value="Iced"><label>ICED</label>
+                        <input type="checkbox" id="large" name="menu-opt" value="Large Size"><label>Large</label>
+                    </fieldset>
+                            
+                    <div>
+                        <input type="hidden" name="menu" value="3">
+                        <!-- <input type="" name="price" value="4500"> -->
+                        <input class="btn-add_to-cart" type="submit" name="cmd" value="담기">
+                        <input class="btn-order-menu" type="submit" name="cmd" value="주문하기">
+                    </div>
+                </form>
+            </div>
+            
+            <div class="menu-list"> 
+                <div>알랜드 커피</div>
+                <div>4,500원</div>
+                <div><img src="/images/18.jpg" alt="알랜드 커피"></div>
+                
+                <form>
+                    <fieldset>
+                        <legend class="d-none">메뉴 옵션</legend>
+                        <input type="checkbox" id="iced" name="menu-opt" value="Iced"><label>ICED</label>
+                        <input type="checkbox" id="large" name="menu-opt" value="Large Size"><label>Large</label>
+                    </fieldset>
+                            
+                    <div>
+                        <input type="hidden" name="menu" value="3">
+                        <!-- <input type="" name="price" value="4500"> -->
+                        <input class="btn-add_to-cart" type="submit" name="cmd" value="담기">
+                        <input class="btn-order-menu" type="submit" name="cmd" value="주문하기">
+                    </div>
+                </form>
+            </div>
+
+            <div class="menu-list"> 
+                <div>알랜드 커피</div>
+                <div>4,500원</div>
+                <div><img src="/images/18.jpg" alt="알랜드 커피"></div>
+                
+                <form>
+                    <fieldset>
+                        <legend class="d-none">메뉴 옵션</legend>
+                        <input type="checkbox" id="iced" name="menu-opt" value="Iced"><label>ICED</label>
+                        <input type="checkbox" id="large" name="menu-opt" value="Large Size"><label>Large</label>
+                    </fieldset>
+                            
+                    <div>
+                        <input type="hidden" name="menu" value="3">
+                        <!-- <input type="" name="price" value="4500"> -->
+                        <input class="btn-add_to-cart" type="submit" name="cmd" value="담기">
+                        <input class="btn-order-menu" type="submit" name="cmd" value="주문하기">
+                    </div>
+                </form>
+            </div>
+
+        </section>
+
+        <div class="btn-cart">
+            <a href="">
+                <span class="btn-go_to-cart">장바구니 가기</span>
+                <span class="btn-num-in-cart">0</span>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin/menu/reg-1</title>
+</head>
+<body>
+
+    <header>
+        <h1>메뉴 목록[23]</h1>
+        <div>메뉴검색</div>
+        <section>
+            <h1>화면이동메뉴</h1>
+            <ul>
+                <li>이전</li>
+                <li>메뉴버튼</li>
+            </ul>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <h1>전체메뉴</h1>
+            <div>범주관리</div>
+            
+            <nav>
+                <h1>메뉴종류</h1>
+                <ul>
+                    <li><a href="">커피음료</a></li>
+                    <li><a href="">수제청</a></li>
+                    <li><a href="">샌드위치</a></li>
+                    <li><a href="">쿠키</a></li>
+                </ul>
+            </nav>
+        
+            <section>
+                <h1>메뉴등록</h1>
+                <form>
+                    <fieldset>
+                        <legend>메뉴등록필드</legend>
+            
+                        <label for="menu_type">메뉴범주 : </label>
+                        <select name="menu_type" id="menu_type">
+                            <option>커피음료</option>
+                            <option>수제청</option>
+                            <option>샌드위치</option>
+                            <option>쿠키</option>
+                        </select>
+                
+                        <div>
+                            <img src="images/8.jpg" alt="사진선택" width="50">
+                        </div>
+                
+                        <label for="menu_name">메뉴명</label><input name="menu_name" id="menu_name" type="text" placeholder="메뉴명을 입력하세요.">
+                        <label for="menu_price">가격</label><input name="menu_price" id="menu_price" type="text">원
+                        <input name="iced" id="iced" type="checkbox"><label for="iced">ICED가능</label>
+                        <input name="large" id="large" type="checkbox"><label for="large">Large가능</label>
+                
+                        <input type="submit" value="취소">
+                        <input type="submit" value="등록">
+                    </fieldset>
+                </form>
+            </section>
+        
+            <section>
+                <h1>사이드메뉴등록</h1>
+                <form>
+                    <fieldset>
+                        <legend>등록된메뉴리스트</legend>
+            
+                        <h2>알랜드 커피</h2>
+                        <div>4,500원</div>
+                        <img src="images/17.jpg" alt="알랜드 커피" width="100">
+                        <input name="iced" id="iced" type="checkbox"><label for="iced">ICED가능</label>
+                        <input name="large" id="large" type="checkbox"><label for="large">Large가능</label>
+                        <div>함께 시키면 맛나요! ^^</div> 
+                        <div>추가이미지</div>
+                        <div>
+                            <div>이전</div>
+                            <ul>
+                                <li><img src="" alt="아몬드 쿠키">아몬드 쿠키</li>
+                                <li><img src="" alt="버터 쿠키">버터 쿠키</li>
+                            </ul>
+                            <div>다음</div>
+                        </div>
+            
+                        <input type="submit" value="저장하기">
+                    </fieldset>
+                </form>
+            
+                <form>
+                    <fieldset>
+                        <legend>등록된메뉴리스트</legend>
+            
+                        <h2>알랜드 커피</h2>
+                        <div>4,500원</div>
+                        <img src="images/17.jpg" alt="알랜드 커피" width="100">
+                        <input name="iced" id="iced" type="checkbox"><label for="iced">ICED가능</label>
+                        <input name="large" id="large" type="checkbox"><label for="large">Large가능</label>
+                        <div>함께 시키면 맛나요! ^^</div> 
+                        <div>추가이미지</div>
+                        <div>
+                            <div>이전</div>
+                            <ul>
+                                <li><img src="" alt="아몬드 쿠키">아몬드 쿠키</li>
+                                <li><img src="" alt="버터 쿠키">버터 쿠키</li>
+                            </ul>
+                            <div>다음</div>
+                        </div>
+            
+                        <input type="submit" value="저장하기">
+                    </fieldset>
+                </form>
+            </section>
+        
+            <section>
+                <h1>등록된 메뉴 더보기</h1>
+                <div>더보기(13+)</div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

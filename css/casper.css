@@ -1,0 +1,64 @@
+body, h1, ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* ------------------------------------------ */
+:root{
+    --bg-default:yellow;
+    --bg-dark:yellowgreen;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.menu{
+    position: fixed;
+    top:200px;
+}
+
+.menu li{
+    width:360px;
+    height: 20px;
+    background-color: #0008;
+    border-radius: 10px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.menu a{
+    color:white;
+}
+
+
+.menu li:hover a{
+    color:burlywood;
+}
+section{
+    /* 각 섹션의 높이를 화면 높이로 해주시고 */
+    height: 100vh;
+    background-color: var(--bg-dark);
+
+    scroll-margin-top: 100px;
+
+    transition: 3s;
+}
+
+
+/* 짝수 번째 섹션은 노란색 배경을 칠해주세요 */
+section:nth-child(2n){
+    background-color: var(--bg-default);
+}
+
+section:target{
+    background-color: chocolate;
+}

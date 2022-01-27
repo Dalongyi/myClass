@@ -1,0 +1,434 @@
+/*------- 저작자: 김수하 ------------*/
+
+@import url(../reset.css);
+@import url(../style.css);
+@import url(../utils.css);
+/* @import url(../buttons.css); */
+
+
+/* ====== btn style ==================================================== */
+/* -----welcome--------------------------------- */
+
+.img-btn-menu {
+    color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23' height='16' viewBox='0 0 23 16'%3E%3Cg id='Icon_feather-menu' data-name='Icon feather-menu' transform='translate(-3.5 -8)'%3E%3Cpath id='패스_5' data-name='패스 5' d='M4.5,18h21' transform='translate(0 -2)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cpath id='패스_6' data-name='패스 6' d='M4.5,9h21' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cpath id='패스_7' data-name='패스 7' d='M4.5,27h21' transform='translate(0 -4)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: right center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+/* -----welcome--------------------------------- */
+
+
+.img-btn-share {
+    color: #fff;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.892' height='18.652' viewBox='0 0 16.892 18.652'%3E%3Cpath id='Icon_ionic-md-share' data-name='Icon ionic-md-share' d='M18.569,16.31a2.565,2.565,0,0,0-1.835.7l-6.729-3.89a3.152,3.152,0,0,0,.094-.656,3.15,3.15,0,0,0-.094-.656L16.64,7.968a2.816,2.816,0,1,0-.894-2.062,3.133,3.133,0,0,0,.094.656L9.205,10.4a2.832,2.832,0,0,0-1.929-.75A2.786,2.786,0,0,0,4.5,12.467a2.833,2.833,0,0,0,4.753,2.062l6.682,3.89a2.351,2.351,0,0,0-.094.609,2.729,2.729,0,1,0,2.729-2.718Z' transform='translate(-4.5 -3.094)' fill='%23fff'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    text-indent: -999px;
+    background-color: #A24F17;
+    border-radius: 40px;
+
+}
+/* -----favorite-menu--------------------------------- */
+
+.btn-leaf {
+    /* text */
+    color: #F9F9F9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+
+    /* layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 83px; */
+    /* height: 25px; */
+    padding: 5px 13px 5px 13px;
+    background-color: #D68814;
+    border-radius: 10px 0;
+}
+
+.btn-add_to-cart {
+    /* text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #000000;
+
+    /* layout */
+    padding: 8px 24px;
+    background-color: #fff;
+    border: 1px solid #A24F17;
+    border-radius: 20px;
+
+    /* effect */
+    cursor: pointer;
+}
+
+.btn-order-menu {
+    /* text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #FFFFFF;
+
+    /* layout */
+    padding: 8px 14px;
+    background-color: #A24F17;
+    border: none;
+    border-radius: 20px;
+
+     /* effect */
+     cursor: pointer;
+}
+
+/* -------- main - btn-cart ---------------------------------------- */
+.btn-cart a {
+    /* text */
+    text-decoration: none;
+}
+
+.btn-go_to-cart {
+    /* text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #FFFFFF;
+    text-align: center;
+
+    /* layout */
+    display: flex;
+    width: 129px;
+    height: 45px;
+    align-items: center;
+    padding-left: 20px;
+    box-sizing: border-box;
+    background-color: #005FFF;
+    border: none;
+    border-radius: 23px;
+}
+
+.btn-num-in-cart {
+    /* text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    color: #FFDF00;
+    text-align: center;
+    line-height: 90px;
+
+    /* layout */
+    display: flex;
+    justify-content: center;
+    width: 79px;
+    height: 79px;
+    background-color: #000000;
+    border: none;
+    border-radius: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='37.597' height='41.812' viewBox='0 0 37.597 41.812'%3E%3Cg id='타원_6' data-name='타원 6' transform='translate(8.301)' fill='none' stroke='%23fff' stroke-width='1'%3E%3Ccircle cx='11' cy='11' r='11' stroke='none'/%3E%3Ccircle cx='11' cy='11' r='10.5' fill='none'/%3E%3C/g%3E%3Cpath id='패스_19' data-name='패스 19' d='M591-1964.418h36.334l-6.7,28.812H597.884Z' transform='translate(-590.366 1976.918)' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: 21px 21px;
+}
+
+
+/* ====== outer block ================================================== */
+.header {
+    /* layout */
+    width: 100%;
+    height: 44px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: #0006;
+
+    /* item layout */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+    .header>div {
+        /* layout */
+        margin-right: 15px;
+    }
+
+.header-welcome-bg-box {
+    /* layout */
+    height: 200px;
+    padding-top: 44px;
+    background: linear-gradient(rgba(162,79,23,0.69) 70%, transparent 100%), 
+    url("../../images/1.jpg") no-repeat -30px / 390px 310px;
+    
+    /* item layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .header-welcome-bg-box .updated-notice {
+        /* text style */
+        background-color: #D68814;
+        
+        /* layout */
+        width: 100%;
+        height: 44px;
+
+        /* item layout */
+        display: flex;
+        justify-content: space-between;
+    }
+    
+        .header-welcome-bg-box .welcome {
+            /* layout */
+            width: 100%;
+            height: 156px;
+            
+            /* item layout */
+            display: flex;
+            justify-content: space-around;
+        }
+        
+            .header-welcome-bg-box .welcome>p {
+                /* layout */
+                margin: 15px 0 0 30px;
+            }
+            
+            .header-welcome-bg-box .welcome>div {
+                /* layout */
+                margin: 0 0 8px 40px; 
+                    
+                /* item layout */
+                display: flex;
+                align-items: flex-end;
+            }
+
+/* -------------------main-------------------------- */
+
+.favorite-menu {
+    /* layout */
+    width: 100%;
+    
+    /* item layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .favorite-menu>header {
+        /* layout */
+        width: 100%;
+        margin: 23px 15px 0 30px;
+        
+        /* item layout */
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    .favorite-menu .menu-list {
+        /* layout */
+        padding-top: 17px;
+        padding-bottom: 20px;
+        border-bottom: 0.5px solid #707070;
+        
+        /* item layout */
+        display: grid;
+        grid-template-columns: 84px 47px 150px;
+        grid-template-rows: 21px 63px;
+        column-gap: 10px;
+        row-gap: 5px;
+    }
+
+    .favorite-menu .menu-list:nth-child(2) {
+        /* layout */
+        padding-top: 0;
+        margin-top: 31px;
+    }
+
+
+        .favorite-menu .menu-list>div {
+            /* layout */
+            grid-column: 2/4;
+            grid-row: 1/2;
+        }
+        
+        .favorite-menu .menu-list div:nth-child(2) {
+            /* layout */
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+        
+        .favorite-menu .menu-list div:nth-child(3) {
+            /* layout */
+            grid-column: 1/2;
+            grid-row: 1/3;
+            align-self: center;
+
+            /* item layout */
+            display: flex;
+            align-items: center;
+        }
+        
+        .favorite-menu .menu-list>form {
+            /* layout */
+            grid-column: 3/4;
+            grid-row: 2/3;
+
+            /* item layout */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .favorite-menu .menu-list>form fieldset {
+                /* item layout */
+                display: flex;
+                justify-content: space-around;
+            }
+
+
+/* ------btn-cart--------------------------------------- */
+
+.btn-cart {
+    /* layout */
+    width: 176px;
+    height: 79px;
+    position: fixed;
+    right: 24px;
+    /* bottom: 22px; */
+}
+    .btn-cart>a {
+        /* item layout */
+        display: flex;
+        justify-content: center;
+    }
+    
+        .btn-cart a .btn-go_to-cart {
+            /* layout */
+            position: absolute;
+            right: 47px;
+            bottom: 18px;
+        }
+        
+        .btn-cart a .btn-num-in-cart {
+            /* layout */
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+
+/* ======= content block ========================================= */
+
+
+.header-welcome-bg-box .notice-info a {
+    /* text */
+    font-family: '휴먼엑스포', "나눔스퀘어라운드";
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+
+    /* layout */
+    display: flex;
+    height: 44px;
+    align-items: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='27.234' height='27.234' viewBox='0 0 27.234 27.234'%3E%3Cg id='Icon_feather-alert-circle' data-name='Icon feather-alert-circle' transform='translate(-1.5 -1.5)'%3E%3Cpath id='패스_33' data-name='패스 33' d='M27.234,15.117A12.117,12.117,0,1,1,15.117,3,12.117,12.117,0,0,1,27.234,15.117Z' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3E%3Cpath id='패스_34' data-name='패스 34' d='M18,12v4.847' transform='translate(-2.883 -1.73)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3E%3Cpath id='패스_35' data-name='패스 35' d='M18,24h0' transform='translate(-2.883 -4.036)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    padding-left: 54px;
+    background-position: left 17px center;
+}
+
+.header-welcome-bg-box .welcome p {
+    /* text */
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 26px;
+    font-weight: normal;
+    color: #fff;
+}
+
+/* -------- main - favorite-menu ---------------------------------------- */
+
+.favorite-menu header h1 {
+     /* text */
+     font-family: '나눔손글씨 펜', "나눔스퀘어라운드";
+     font-size: 22px;
+     font-weight: normal;
+     color: #000000;
+}
+
+
+.favorite-menu>.menu-list>div {
+    /* text */
+    font-family: '본고딕 KR';
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.favorite-menu>.menu-list div:nth-child(2) {
+    /* text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #000000;
+}
+
+.favorite-menu>.menu-list img {
+    /* layout */
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    border: 1px solid #707070;
+    border-radius: 40px;
+}
+
+.favorite-menu>.menu-list form fieldset {
+    /* layout */
+    border: none;
+    padding: 0;
+}
+
+.favorite-menu>.menu-list form fieldset input {
+    /* layout */
+    width: 11px;
+    height: 11px;
+    margin-left: 20px;
+    position: relative;
+
+    /* appearance: none;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #A24F17; */
+}
+
+.favorite-menu>.menu-list form fieldset input::before {
+    /* layout */
+    content: "";
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #A24F17;
+}
+
+
+.favorite-menu>.menu-list form fieldset label {
+     /* text */
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 13px;
+     font-weight: normal;
+     color: #000000;
+}
+

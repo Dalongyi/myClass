@@ -1,0 +1,17 @@
+@media screen and (min-width: 1000px) {
+    
+    /* ==== layout ============================================== */
+    /* 각 방들의 너비를 1000px로 한정하시오. */
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    body>*{
+        width:1000px;
+    }
+
+
+    /* ==== content block ========================================================= */
+
+}

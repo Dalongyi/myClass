@@ -1,0 +1,20 @@
+/* ==== utils style ======================================== */
+.d-none{
+    display: none !important;
+}
+
+.d-initial{
+    display: initial !important;
+}
+
+.d-block{
+    display: block !important;
+}
+
+
+/* @media screen and (min-width: 720px) {
+    .d-none{
+        display: none !important;
+    }
+
+} */

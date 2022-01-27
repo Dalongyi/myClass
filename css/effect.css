@@ -1,0 +1,113 @@
+@keyframes rotate-hand{
+    from{
+        transform:rotate(0deg);
+    }
+
+    30%{
+        width:300px;
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.s2>div{
+    height: 300px;
+    margin-bottom: 10px;
+    background-color: gray;
+    position: relative;
+    
+}
+
+.s2>div:hover{
+    
+}
+
+.s2>div:hover .hand{
+    /* transform: rotate(360deg); */
+    /* animation-name: rotate-hand;
+    animation-duration: 1s; */
+    animation:rotate-hand 1s ;
+    
+}
+
+.s2 .hand{
+    background-color: tomato;
+    width:200px;
+    position: absolute;
+    left : 100px;
+    top : 100px;
+    
+
+    /* transition:transform 60s steps(60, start); */
+}
+
+.s2 .circle{
+    background-color: yellowgreen;
+    width:50px;
+    height: 50px;
+    border-radius: 25px;    
+}
+
+
+/* --------------------------------------- */
+
+.s1>div{
+    height: 300px;
+    margin-bottom: 10px;
+    background-color: gray;
+    position: relative;
+}
+
+.s1>div:hover .hand{
+    transform: rotate(360deg);
+}
+
+.s1 .hand{
+    background-color: tomato;
+    width:200px;
+    position: absolute;
+    left : 100px;
+    top : 100px;
+
+    transition:transform 60s steps(60, start);
+}
+
+.s1 .circle{
+    background-color: yellowgreen;
+    width:50px;
+    height: 50px;
+    border-radius: 25px;    
+}
+/* -------------------------------- */
+.ex1{
+    height: 200px;
+    background-color: gray;
+
+    position: relative;
+}
+
+.ex1 .box, .ex1 .box1{
+    width: 100px;
+    height: 100px;
+    background-color: greenyellow;
+
+    position: absolute;
+    left :100px;
+    top:50px;
+}
+.ex1 .box1{
+    background-color: white;
+    content:"hello";
+}
+
+.ex1 .box{
+    transition: 1s cubic-bezier(0.805, 0.725, 0.595, 1.565);
+    transform-origin: 10px 10px;
+}
+
+.ex1:hover .box{
+    
+    transform:rotate(45deg);
+}
