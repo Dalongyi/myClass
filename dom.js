@@ -1,4 +1,42 @@
+//5-1. 숙제) 카드클릭시 이동
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s5-1");
+    var clickCard = section.querySelector("ul");
+    var lis = section.querySelectorAll("li");
+    var cardNames = ["card-1th", "card-2th", "card-3th"];
+    var rightOffIndex = 0;
+    var leftOffIndex = 0;
 
+    clickCard.onclick = function(e){
+
+        var firstPosIndex = cardNames.indexOf(e.target.className);
+
+        if(firstPosIndex == 0){
+            lis[0].className = cardNames[(1 + rightOffIndex) % 3];
+            lis[1].className = cardNames[(2 + rightOffIndex) % 3];
+            lis[2].className = cardNames[(0 + rightOffIndex) % 3];
+            rightOffIndex++;
+        }else if(firstPosIndex == 2){
+
+            //leftOffIndex = leftOffIndex % 3 == 0 ? 2 : leftOffIndex;
+
+            lis[0].className = cardNames[calculateIndex(leftOffIndex)];  
+            lis[1].className = cardNames[calculateIndex(leftOffIndex + 1)];
+            lis[2].className = cardNames[calculateIndex(leftOffIndex + 2)];
+
+            leftOffIndex++;
+        }
+
+        console.log(lis);
+        }
+});
+
+ var calculateIndex = function(index){
+     if(index >= 0 && index <= 2)
+        return index;
+     return index = index % 3 == 0 ? 2 : index;
+ }
+//5.스타일 다루기:아이템 이동하기
 window.addEventListener("load", function(){
     var section = document.querySelector("#s5");    
     var btnNext = section.querySelector(".btn-next");
