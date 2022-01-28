@@ -4,38 +4,25 @@ window.addEventListener("load", function(){
     var clickCard = section.querySelector("ul");
     var lis = section.querySelectorAll("li");
     var cardNames = ["card-1th", "card-2th", "card-3th"];
-    var rightOffIndex = 0;
-    var leftOffIndex = 0;
-
+    var pos = [0, 1, 2];
+    // 유연성 가독성
     clickCard.onclick = function(e){
 
-        var firstPosIndex = cardNames.indexOf(e.target.className);
+        var clickPosIndex = cardNames.indexOf(e.target.className);
 
-        if(firstPosIndex == 0){
-            lis[0].className = cardNames[(1 + rightOffIndex) % 3];
-            lis[1].className = cardNames[(2 + rightOffIndex) % 3];
-            lis[2].className = cardNames[(0 + rightOffIndex) % 3];
-            rightOffIndex++;
-        }else if(firstPosIndex == 2){
+        if(clickPosIndex == 0){
+            for(var i = 0; i < lis.length; i++){
+                lis[i].className = cardNames[pos[i] = pos[i] + 1 > 2 ? 0 : pos[i] + 1];  
+            }
 
-            //leftOffIndex = leftOffIndex % 3 == 0 ? 2 : leftOffIndex;
-
-            lis[0].className = cardNames[calculateIndex(leftOffIndex)];  
-            lis[1].className = cardNames[calculateIndex(leftOffIndex + 1)];
-            lis[2].className = cardNames[calculateIndex(leftOffIndex + 2)];
-
-            leftOffIndex++;
+        }else if(clickPosIndex == lis.length - 1){
+            for(var i = 0; i < lis.length; i++){
+                lis[i].className = cardNames[pos[i] = pos[i] - 1 < 0 ? 2 : pos[i] - 1];  
+            }
         }
-
-        console.log(lis);
-        }
+    }
 });
 
- var calculateIndex = function(index){
-     if(index >= 0 && index <= 2)
-        return index;
-     return index = index % 3 == 0 ? 2 : index;
- }
 //5.스타일 다루기:아이템 이동하기
 window.addEventListener("load", function(){
     var section = document.querySelector("#s5");    
@@ -86,7 +73,50 @@ window.addEventListener("load", function(){
     }
 
 });
+window.addEventListener("load", function(){
+    var section = document.getElementById("s3-1");
+    var txtInfo = section.querySelector(".box > input");
+    var buffer = "";
+    var isOperationState = false;
+    var isResult = false;
 
+    section.onclick = function(e){
+        e.preventDefault();
+
+        if(e.target.nodeName == "DIV")
+            return;
+
+        if(txtInfo.value == "0")
+            txtInfo.value = "";
+
+        var operation = e.target.value;
+
+        if(operation == "+" || 
+            operation == "-" ||
+            operation == "*" ||
+            operation == "/" ||
+            operation == "="){
+            e.stopPropagation();
+            if(isResult){
+                buffer += txtInfo.value;
+                txtInfo.value = eval(buffer);
+                isResult = false;
+            }
+
+            isOperationState = true;
+            buffer = txtInfo.value + operation;
+            return;
+        }
+
+        if(isOperationState){
+            txtInfo.value="";
+            isResult = true;
+            isOperationState = false;
+        }
+
+        txtInfo.value += e.target.value;
+    }
+});
 //<h1>3. 이벤트 객체 : 개선된 계산기</h1> -------------------------
 window.addEventListener("load", function(){
     var section = document.querySelector("#s3");    
