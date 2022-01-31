@@ -1,24 +1,31 @@
 //5-1. 숙제) 카드클릭시 이동
 window.addEventListener("load", function(){
     var section = document.querySelector("#s5-1");
-    var clickCard = section.querySelector("ul");
+    var cards = section.querySelector("ul");
     var lis = section.querySelectorAll("li");
-    var cardNames = ["card-1th", "card-2th", "card-3th"];
-    var pos = [0, 1, 2];
+
+    var cardNames = [];
+    lis.forEach(function(item){
+        cardNames.push(item.className);
+    });
+
+    var pos = [];
+    (function(){
+        for(var i = 0; i < cardNames.length; i++)
+            pos.push(i);
+    })();
+
     // 유연성 가독성
-    clickCard.onclick = function(e){
+    cards.onclick = function(e){
 
         var clickPosIndex = cardNames.indexOf(e.target.className);
+        var lastIndex = lis.length - 1;
 
-        if(clickPosIndex == 0){
-            for(var i = 0; i < lis.length; i++){
-                lis[i].className = cardNames[pos[i] = pos[i] + 1 > 2 ? 0 : pos[i] + 1];  
-            }
-
-        }else if(clickPosIndex == lis.length - 1){
-            for(var i = 0; i < lis.length; i++){
-                lis[i].className = cardNames[pos[i] = pos[i] - 1 < 0 ? 2 : pos[i] - 1];  
-            }
+        for(var i = 0; i < lis.length; i++){
+            if(clickPosIndex == 0)
+                lis[i].className = cardNames[pos[i] = pos[i] + 1 > lastIndex ? 0 : pos[i] + 1];  
+            else if(clickPosIndex == lastIndex)
+                lis[i].className = cardNames[pos[i] = pos[i] - 1 < 0 ? lastIndex : pos[i] - 1];  
         }
     }
 });
