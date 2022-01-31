@@ -80,6 +80,8 @@ window.addEventListener("load", function(){
     }
 
 });
+
+// 3-1)숙제 계산기
 window.addEventListener("load", function(){
     var section = document.getElementById("s3-1");
     var txtInfo = section.querySelector(".box > input");
