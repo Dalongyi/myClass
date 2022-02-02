@@ -1,7 +1,7 @@
 //5-1. 숙제) 카드클릭시 이동
 window.addEventListener("load", function(){
     var section = document.querySelector("#s5-1");
-    var cards = section.querySelector("ul");
+    var card = section.querySelector("ul");
     var lis = section.querySelectorAll("li");
 
     var cardNames = [];
@@ -16,7 +16,7 @@ window.addEventListener("load", function(){
     })();
 
     // 유연성 가독성
-    cards.onclick = function(e){
+    card.onclick = function(e){
 
         var clickPosIndex = cardNames.indexOf(e.target.className);
         var lastIndex = lis.length - 1;
