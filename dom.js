@@ -1,29 +1,77 @@
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s7");
+    var box = section.querySelector(".box");
+    var firstBox= section.querySelector(".active");
+    var isFirstClick = false;
+    var isSecondClick = false;
+    box.onclick=function(e){
+        
+        if(e.target.classList.contains("src-item"))
+            isFirstClick = true;
+        else if(e.target.classList.contains("dst-item") && isFirstClick){
+            isFirstClick = false;
+            isSecondClick = true;
+        }
+        else
+            return;
+
+        if(isFirstClick){
+            if(firstBox!=null)
+                firstBox.classList.remove("active");
+            e.target.classList.add("active");
+            firstBox= e.target;
+        }else if(isSecondClick){
+            //firstBox.style.left= clickBox.style.left;    
+            //firstBox.style.left = ;
+            //firstBox.style.top = ;
+            console.log(box.offsetLeft);
+        }
+        
+    }
+});
+
 // ---6. 스타일 다루기: 아코디언-------------------------
 
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s6");
+//    var box = section.querySelector(".accordion-box");
+//    var content = section.querySelectorAll(".accordion-content");
+//    var current = section.querySelector(".active");
+//    box.onclick=function(e){
+//        
+//        var valid= e.target.nodeName == "H2" || e.target.classList.contains("accordion-header");
+//
+//        if(!valid)
+//            return;
+//
+//
+//        if(current != null)
+//            current.classList.remove("active");
+//
+//        e.target.classList.toggle("active");
+//        current = e.target;
+//        
+//    }
+//    
+//
+//});
 window.addEventListener("load", function(){
     var section = document.querySelector("#s6");
     var box = section.querySelector(".accordion-box");
-    var content = section.querySelectorAll(".accordion-content");
     var current = section.querySelector(".active");
     box.onclick=function(e){
-        
-        var valid= e.target.nodeName == "H2" || e.target.classList.contains("accordion-header");
-
-        if(!valid)
+        if(e.target.nodeName != "H2" && !e.target.classList.contains("accordion-header"))
             return;
-
 
         if(current != null)
             current.classList.remove("active");
 
         e.target.classList.toggle("active");
         current = e.target;
-        
-    }
-    
+    };
+
 
 });
-
 //-------------------------------------------
 //5-1. 숙제) 카드클릭시 이동
 window.addEventListener("load", function(){

@@ -10,6 +10,7 @@
     width:400px;
 }
 
+
 #s7 .box .dst-item-list{
     flex-grow: 1;    
 }
@@ -62,6 +63,11 @@
     left : 550px;
     top: 250px;
 }
+
+#s7>div>div>div.active{
+    background-color: red;
+}
+
 #s6>div,
 .accordion-box{
     height: 400px;
@@ -74,8 +80,7 @@
 {
     /* reset */
     padding: 0;
-    margin: 0;
-    /* text */
+    margin: 0;/* text */
     font-size: 100%;
     font-weight: normal;
     color: #454545;
@@ -89,11 +94,10 @@
     background: #f6f6f6;
     
     /* effect */
-    transition: background-color 1s;
-    
+    transition: background-color 1s;    
 }
 
-.s6>div>div
+#s6>div>div,
 .accordion-content{
     /* reset */
     margin: 0;
@@ -115,6 +119,16 @@
     transition: flex-grow 1s, padding 
 }
 
+#s6>div>h2.active,
+.accordion-header.active{
+    background-color: red;    
+}
+
+#s6>div>h2.active+div,
+.accordion-header.active+.accordion-content{
+    flex-grow: 1;
+}
+
 
 #test{
     height: 300px;
@@ -134,15 +148,7 @@
     background-color: darkorange;
 }
 
-#s6>div>h2.active,
-.accordion-header.active{
-    background-color: lightgreen;
-}
 
-#s6>div>h2.active+div,
-.accordion-header.active.accordion-content{
-    flex-grow:1;
-}
 /* --- #s5 ------------------------- */
 
 #s5-1 .box{
