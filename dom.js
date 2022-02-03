@@ -16,15 +16,15 @@ window.addEventListener("load", function(){
             return;
 
         if(isFirstClick){
-            if(firstBox!=null);w
+            if(firstBox!=null)
                 firstBox.classList.remove("active");
             e.target.classList.add("active");
             firstBox= e.target;
         }else if(isSecondClick){
-            //firstBox.style.left= clickBox.style.left;    
-            //firstBox.style.left = ;
-            //firstBox.style.top = ;
-            console.log(box.offsetLeft);
+            var left = Math.round(e.target.getBoundingClientRect().left);
+            var top = Math.round(e.target.getBoundingClientRect().top);
+            firstBox.style.left = (left - box.offsetLeft) + "px";    
+            firstBox.style.top = (top - box.offsetTop) + "px";    
         }
         
     }

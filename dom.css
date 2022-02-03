@@ -48,6 +48,10 @@
     left : 0px;
     top: 250px;
 }
+#s7 .src-item{
+    /* effect */
+    transition: left 1s, background-color 1s, width 1s, height 1s;
+}
 
 #s7 .dst-item-list .item:nth-child(1){    
     left : 450px;
