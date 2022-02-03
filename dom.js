@@ -16,7 +16,7 @@ window.addEventListener("load", function(){
             return;
 
         if(isFirstClick){
-            if(firstBox!=null)
+            if(firstBox!=null);w
                 firstBox.classList.remove("active");
             e.target.classList.add("active");
             firstBox= e.target;
