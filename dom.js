@@ -15,24 +15,30 @@ window.addEventListener("load", function(){
         else
             return;
 
+
         if(isFirstClick){
             if(firstBox!=null)
                 firstBox.classList.remove("active");
             e.target.classList.add("active");
             firstBox= e.target;
-            firstBox.ontransitionend = function(){
-                console.log("끝");
-                firstBox.classList.add("finished");
-                firstBox.ontransitionend = null;
-            }
         }else if(isSecondClick){
-            var left = Math.round(e.target.getBoundingClientRect().left);
-            var top = Math.round(e.target.getBoundingClientRect().top);
-            firstBox.style.left = (left - box.offsetLeft) + "px";    
-            firstBox.style.top = (top - box.offsetTop) + "px";    
+            var targetStyle = window.getComputedStyle(e.target);
+            var left = targetStyle.getPropertyValue("left");
+            var top = targetStyle.getPropertyValue("top");
+            firstBox.style.left = left;
+            firstBox.style.top = top;
             firstBox.style.transform = "rotate(360deg)";
-
+            //var left = Math.round(e.target.getBoundingClientRect().left);
+            //var top = Math.round(e.target.getBoundingClientRect().top);
+            //firstBox.style.left = (left - box.offsetLeft) + "px";    
+            //firstBox.style.top = (top - box.offsetTop) + "px";    
+            firstBox.ontransitionend = function(){
+            console.log("끝");
+            firstBox.classList.add("finished");
+            firstBox.ontransitionend = null;
+            }
         }
+
         
     }
 });
@@ -279,39 +285,68 @@ window.addEventListener("load", function(){
 });
 
 // 1. 노드 선택방법 -------------------------------------------
+//window.addEventListener("load", function(){
+//    // --- 초기화 ----------------
+//    // 2. Selectors API를 이용하여 노드를 선택하는 방법
+//    var section = document.querySelector("#s1");
+//    //var input = section.querySelector(".input");
+//    var input = section.querySelector("input[type=text]");
+//    var button = section.querySelector("input[type=button]");
+//
+//    // 1. 이 방식은 DOM의 노드선택 방법
+//    var section = document.getElementById("s1");
+//    var input = section.getElementsByClassName("input")[0];    
+//    var button = section.getElementsByClassName("button")[0];
+//
+//    button.onclick = function(){
+//        input.value = "안녕하세요";
+//    };      
+//
+//});
 window.addEventListener("load", function(){
-    // --- 초기화 ----------------
-    // 2. Selectors API를 이용하여 노드를 선택하는 방법
-    var section = document.querySelector("#s1");
-    //var input = section.querySelector(".input");
-    var input = section.querySelector("input[type=text]");
-    var button = section.querySelector("input[type=button]");
+    var section = document.querySelector("#s2");
+    var x = section.querySelector(".x-input");
+    var y = section.querySelector(".y-input");
+    var plusButton = section.querySelector(".button");
+    var result = section.querySelector("div>span>span+span");
 
-    // 1. 이 방식은 DOM의 노드선택 방법
-    var section = document.getElementById("s1");
-    var input = section.getElementsByClassName("input")[0];    
-    var button = section.getElementsByClassName("button")[0];
-
-    button.onclick = function(){
-        input.value = "안녕하세요";
-    };      
+    plusButton.onclick = function(){
+        result.innerText = parseInt(x.value) + parseInt(y.value);
+    }
 
 });
 
+//window.addEventListener("load", function(){
+//    // --- 초기화 ----------------
+//    var btn1 = document.getElementById("btn1");
+//    btn1.onclick = printSum;
+//        
+//    function printSum(){
+//        var x, y;
+//        x = prompt('x 값을 입력하세요');
+//        y = prompt('x 값을 입력하세요');
+//        x = parseInt(x);
+//        y = parseInt(y);
+//        btn1.value = x+y;
+//        btn1.type="text";
+//        
+//    }
+//
+//});
 window.addEventListener("load", function(){
-    // --- 초기화 ----------------
+    var section = document.querySelector("#s1");
+    var box = section.querySelector(".input");
+    var clickButton= section.querySelector(".button");
     var btn1 = document.getElementById("btn1");
-    btn1.onclick = printSum;
-        
-    function printSum(){
-        var x, y;
-        x = prompt('x 값을 입력하세요');
-        y = prompt('x 값을 입력하세요');
-        x = parseInt(x);
-        y = parseInt(y);
-        btn1.value = x+y;
-        btn1.type="text";
-        
+
+    clickButton.onclick = function(){
+        box.value = "방가요";
     }
+
+    btn1.onclick = function(){
+        var x = prompt("x값을 입력하세요");
+        var y = prompt("y값을 입력하세요");
+        box.value = parseInt(x) + parseInt(y);
+    };
 
 });

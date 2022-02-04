@@ -64,7 +64,7 @@
 }
 #s7 .src-item{
     /* effect */
-    transition: left 1s, background-color 1s, width 1s, height 1s, transform 1s;
+    transition: left 1s, top 1s, transform 1s, background-color 1s;
 }
 
 #s7 .dst-item-list .item:nth-child(1){    
@@ -83,11 +83,11 @@
 }
 
 
-#s7>div>div>div.finished{
+#s7 .src-item.finished{
     background-color: green;
 }
 
-#s7>div>div>div.active{
+/*#s7>div>div>div.active,*/ .src-item.active{
     background-color: red;
     color: white;
     z-index: 1;
