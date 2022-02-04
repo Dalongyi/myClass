@@ -1,3 +1,17 @@
+#s8 input{
+    outline: none;
+    box-sizing:border-box ;
+    width:100%;
+    height:30px;
+    padding: 0 20px;
+    border:1px solid gray;
+    border-radius: 40px;
+}
+
+#s8 input[type=text]:valid{
+    background-color: lightgreen;
+}
+
 #s7 .box{
     height: 400px;
     background-color: #c5c5c5;
@@ -50,7 +64,7 @@
 }
 #s7 .src-item{
     /* effect */
-    transition: left 1s, background-color 1s, width 1s, height 1s;
+    transition: left 1s, background-color 1s, width 1s, height 1s, transform 1s;
 }
 
 #s7 .dst-item-list .item:nth-child(1){    
@@ -68,8 +82,16 @@
     top: 250px;
 }
 
+
+#s7>div>div>div.finished{
+    background-color: green;
+}
+
 #s7>div>div>div.active{
     background-color: red;
+    color: white;
+    z-index: 1;
+    transform: rotate(0deg);
 }
 
 #s6>div,

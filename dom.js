@@ -1,7 +1,7 @@
 window.addEventListener("load", function(){
     var section = document.querySelector("#s7");
     var box = section.querySelector(".box");
-    var firstBox= section.querySelector(".active");
+    var firstBox = section.querySelector(".active");
     var isFirstClick = false;
     var isSecondClick = false;
     box.onclick=function(e){
@@ -20,11 +20,18 @@ window.addEventListener("load", function(){
                 firstBox.classList.remove("active");
             e.target.classList.add("active");
             firstBox= e.target;
+            firstBox.ontransitionend = function(){
+                console.log("끝");
+                firstBox.classList.add("finished");
+                firstBox.ontransitionend = null;
+            }
         }else if(isSecondClick){
             var left = Math.round(e.target.getBoundingClientRect().left);
             var top = Math.round(e.target.getBoundingClientRect().top);
             firstBox.style.left = (left - box.offsetLeft) + "px";    
             firstBox.style.top = (top - box.offsetTop) + "px";    
+            firstBox.style.transform = "rotate(360deg)";
+
         }
         
     }
