@@ -12,7 +12,8 @@
     <section id="s8">
         <h1>8. 이벤트 다루기(focus/blur/tabindex),스타일</h1>
         <form>
-            <fieldset>회원정보입력
+            <fieldset>
+               <legend>회원정보입력</legend> 
             <div>
                 <div>
                     <label>이름:</label>
@@ -20,7 +21,7 @@
                 </div>
                 <div>
                     <label>연락처:</label>
-                    <input type="text"  placeholder="구분자(-)를 포함해주세요" required pattern="">
+                    <input type="text"  placeholder="구분자(-)를 포함해주세요" required pattern="^01[0169]-\d{3,4}-\d{4}$">
                 </div>
             </div>
             <div>
