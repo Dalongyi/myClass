@@ -1,0 +1,67 @@
+body{
+    margin:0;
+}
+
+#ex2 {
+}
+
+#ex2 *{
+    font-size: 30px;
+    text-align: center;
+}
+
+#ex2 header{
+    width: 70%;
+    height: 70px;
+    background-color: blueviolet;
+    display: inline-block;
+}
+
+
+#ex2 main{
+    width:70%;
+    height: 120px; 
+    background-color: red;
+    display: inline-block;
+}
+
+#ex2 aside{
+    width:30%;
+    height: 190px;
+    background-color: aqua;
+    display: inline-block;
+}
+
+
+
+
+body>div {
+   width:600px; 
+}
+
+div header {
+    width: 100%;
+    height: 50px;
+    background-color: yellow;
+}
+
+div aside{
+    width: 20%;
+    height: 300px;
+    background-color: blue;
+    float: left;
+}
+
+div main{
+    width: 80%;
+    height: 300px;
+    background-color: red;
+    float: left;
+}
+
+div footer{
+    width: 100%;
+    height: 50px;
+    clear: both;
+    background-color:aqua;
+}
