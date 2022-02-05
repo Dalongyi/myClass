@@ -215,33 +215,33 @@ window.addEventListener("load", function(){
     }
 });
 //<h1>3. 이벤트 객체 : 개선된 계산기</h1> -------------------------
-window.addEventListener("load", function(){
-    var section = document.querySelector("#s3");    
-    var txtInput = section.querySelector("input[type=text]");
-    var divInput = section.querySelector("input[value='/']");
-
-    divInput.onclick = function(e){
-        e.preventDefault();
-       // e.stopPropagation();
-
-        console.log("나눗셈 버튼");
-    }
-    
-    var box = section.querySelector("div");
-    box.addEventListener("click", function(e){
-         e.preventDefault();
-    
-        if(e.target.nodeName == "INPUT"){
-            
-            if(txtInput.value == "0")
-                txtInput.value = "";
-
-            var value = txtInput.value;
-            console.log(e.target.value); 
-            value += e.target.value;
-            txtInput.value = value;
-        }
-    },true);
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s3");    
+//    var txtInput = section.querySelector("input[type=text]");
+//    var divInput = section.querySelector("input[value='/']");
+//
+//    divInput.onclick = function(e){
+//        e.preventDefault();
+//       // e.stopPropagation();
+//
+//        console.log("나눗셈 버튼");
+//    }
+//    
+//    var box = section.querySelector("div");
+//    box.addEventListener("click", function(e){
+//         e.preventDefault();
+//    
+//        if(e.target.nodeName == "INPUT"){
+//            
+//            if(txtInput.value == "0")
+//                txtInput.value = "";
+//
+//            var value = txtInput.value;
+//            console.log(e.target.value); 
+//            value += e.target.value;
+//            txtInput.value = value;
+//        }
+//    },true);
     // box.onclick = function(e){
     // e.preventDefault();
     
@@ -266,22 +266,33 @@ window.addEventListener("load", function(){
     //         txtInput.value = value;
     //     };
         
-});
+//});
 //<h1>2. DOM 속성 다루기 : 계산기</h1> -------------------------
+//window.addEventListener("load", function(){
+//    
+//    var section = document.querySelector("#s2");    
+//    var xInput = section.querySelector(".x-input");
+//    var yInput = section.querySelector(".y-input");
+//    var button = section.querySelector(".button");
+//    var resultSpan = section.querySelector(".result-span");
+//
+//    button.onclick = function(){
+//        var x = parseInt(xInput.value);
+//        var y = parseInt(yInput.value);        
+//        resultSpan.innerText = x + y;
+//    };
+//
+//});
 window.addEventListener("load", function(){
-    
-    var section = document.querySelector("#s2");    
-    var xInput = section.querySelector(".x-input");
-    var yInput = section.querySelector(".y-input");
-    var button = section.querySelector(".button");
-    var resultSpan = section.querySelector(".result-span");
+    var section = document.querySelector("#s3");
+    var txtInfo = section.querySelector("input[type]");
+    var box = section.querySelector(".box");
 
-    button.onclick = function(){
-        var x = parseInt(xInput.value);
-        var y = parseInt(yInput.value);        
-        resultSpan.innerText = x + y;
-    };
-
+    box.onclick = function(e){
+        e.preventDefault();
+        txtInfo.value = e.target.value;
+        console.log(e.target.classList[1]);
+    }
 });
 
 // 1. 노드 선택방법 -------------------------------------------
