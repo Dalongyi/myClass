@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="dom.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css" integrity="sha512-6c4nX2tn5KbzeBJo9Ywpa0Gkt+mzCzJBrE1RB6fmpcsoN+b/w/euwIMuQKNyUoU/nToKN3a8SgNOtPrbW12fug==" crossorigin="anonymous" />
+
     <script src="dom.js"></script>
 </head>
 <body>
@@ -14,10 +16,12 @@
         <form>
             <fieldset>
                <legend>회원정보입력</legend> 
+               
             <div>
-                <div>
+                <div class="name-div">
                     <label>이름:</label>
-                    <input type="text" minlength="2" placeholder="2자 이상의 문자를 입력하세요" required>
+                    <input type="text" minlength="2" placeholder="2자 이상의 문자를 입력하세요" required contenteditable="true">
+                    <i class="far fa-check-circle"></i>
                 </div>
                 <div>
                     <label>연락처:</label>

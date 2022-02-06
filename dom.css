@@ -1,3 +1,15 @@
+#s8 .name-div{
+    position: relative;
+}
+
+#s8 .name-div .far{
+    position: absolute;
+    left:300px;
+    top:28px;
+}
+
+
+
 #s8 input{
     outline: none;
     box-sizing:border-box ;
