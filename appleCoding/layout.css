@@ -1,3 +1,41 @@
+.ex4{
+}
+.ex4 button{
+    padding: 20px;
+    font-size:20px;
+    border-radius: 15px;
+    border-style: none;
+    background-color:#eee
+}
+
+.ex4 .main-title h1{
+    padding: 40px;
+    margin:0px;
+    font-size:50px;
+    color:#eee;
+}
+
+.ex4 .main-content p{
+    margin:0px;
+    padding:40px;
+    font-size:30px;
+    color:#eee;
+}
+
+.ex4 .main-button{
+    margin: 0px;
+    padding:60px;
+}
+.ex4 .main-bottom-box{
+    background-color: #eee;
+    width: 300px;
+    margin:auto;
+}
+.ex4 div {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 .ex4 {
     width: 500px;
     height: 500px;
@@ -5,19 +43,7 @@
     background-size:cover;
     background-position: center;
 }
-.ex4 div{
-    padding: 50px 10px 10px 10px;
-}
-.ex4 span{
-    font-size:50px;
-    color:#eee;
-}
 
-.ex4 div+div p{
-    font-size: 30px;
-    color: red;
-    padding: 30px;
-}
 .ex3 li{
     width: 100px;
     height: 100px;
