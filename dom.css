@@ -22,6 +22,12 @@
 #s9 .img-list-box img{
     width: 100%;
     height: 100%;
+   
+}
+
+#s9 img{
+    position:relative;
+    left: 0;
 }
 
 #s9 .show-room{
@@ -64,8 +70,8 @@
 #s8-1 .box>div:focus{
     background-color: lightsalmon;
 }
-#s8-1 .box>div.delete{
-    background-color: none;
+#s8-1 .aaa{
+    display: none;
 }
 
 #s8 .name-div{

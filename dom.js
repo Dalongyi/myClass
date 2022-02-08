@@ -1,20 +1,56 @@
+
+window.addEventListener("load",function(){
+    var section = document.querySelector("#s9");    
+    var images= section.querySelectorAll(".img-list-box>ul>li>img");
+    var imageUl = section.querySelector(".img-list-box");
+
+    var imageWidths = [];
+    for(var i = 0; i < images.length; i++){
+        var targetStyle = window.getComputedStyle(images[i]);
+        var width = parseInt(targetStyle.getPropertyValue("width"));
+        imageWidths.add(width);
+    }
+    var clickNum = 0; 
+    var pos = [];
+
+    (function(){
+        for(var i; i < images.length; i++)
+        pos.add(i);
+    })();
+
+
+
+    imageUl.onclick = function(){
+        clickNum++;
+        for(var i = 0; i < images.length; i++){
+            var value = (100 * clickNum); 
+            images[i].style.left =  + "px";
+        }
+    }
+    
+});
+
 window.addEventListener("load",function(){
     var section = document.querySelector("#s8-1");    
     var box = section.querySelector(".box");
 
     box.onclick = function(e){
         if(e.target.classList.contains("box")){
+            console.log("box line 밖");
             return;
         }
     }
 
     box.onkeydown = function(e){
-        if(e.target.classList.contains("box"))
+        if(e.target.classList.contains("box")){
             return;
+        }
 
         if(e.code =="Delete"){
-            e.target.classList.add("delete");
-            console.log(e.code);
+
+            console.log(e.target);
+            e.target.classList.add("aaa");
+            console.log(e.target.classList);
         }
     }
 });
