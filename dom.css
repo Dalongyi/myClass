@@ -1,6 +1,42 @@
 
-/* --- #s8-1 ---------------------------------------------- */
-/* --- #s9 ---------------------------------------------- */
+#s9-1 .page-box{
+    height: 500px;
+    background-color: gray;
+
+    position: relative;
+    overflow: hidden;
+}
+
+#s9-1 .page-box .page{    
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    left:0px;
+    top:0px;
+}
+
+#s9-1 .page-box .first{    
+    border : 2px solid red;
+    z-index: 1;
+}
+
+#s9-1 .page-box .moveUp{    
+    top: -500px;
+    transition: top 1s;
+}
+
+#s9-1 .page-box .moveDown{    
+    top: 0;
+    transition: top 1s;
+}
+
+#s9-1 .page-box .page img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 
 #s9 .img-list-box ul{
     /* reset */

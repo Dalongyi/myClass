@@ -1,55 +1,103 @@
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s9-1");
+    var nowImage = section.querySelector(".first");
+    
+    // img.parentElement;
+    // img.previousElementSibling;
+    // img.nextElementSibling;
+    // img.children[0];
+    // img.firstElementChild;
+    // img.lastElementChild;
+    nowImage.onwheel = function(e) {
+        e.preventDefault();
+        if(e.deltaY > 0){
+            var nextNode = nowImage.nextElementSibling;
+            nowImage.classList.add("moveUp");
+            nowImage.classList.remove("first");
+            nowImage = nextNode;
 
-// --- <h1>9. 이벤트 다루기(focus/blur/tabindex), 스타일(:valid,..) : 입력 값 유효성 검사하기</h1> ----------------------------------
+        }else if(e.deltaY < 0){
+            var nextNode = nowImage.nextElementSibling;
+            nowImage.classList.remove("moveDown");
+            nextNode.classList.add("moveDown");
+            nowImage = nextNode;
+        }
+    }
+    nowImage.ontransitionend = function(){
+        //nowImage.classList.add("first");
+    }
+});
+// --- <h1>9. 이벤트 다루기(wheel) : 이미지 쇼룸</h1> ----------------------------------
 window.addEventListener("load", function(){
     var section = document.querySelector("#s9");    
+    var imgListBox = section.querySelector(".img-list-box");
     var showRoom = section.querySelector(".show-room");
-    var imgListBox= section.querySelector(".img-list-box");
     var img = showRoom.querySelector("img");
-
+    
     var current = imgListBox.querySelector(".active");
-    var isWorking = false; 
-   
+    var isWorking = false;
+
     section.onkeydown = function(e){
-        console.log(e.code);
-    }
+        if(e.code == "ArrowLeft"){
+            
+        }
+        else if(e.code == "ArrowRight"){
+
+        }
+
+    };
+
     imgListBox.onwheel = function(e){
         e.preventDefault();
 
+        // img.parentElement;
+        // img.previousElementSibling;
+        // img.nextElementSibling;
+        // img.children[0];
+        // img.firstElementChild;
+        // img.lastElementChild;
         if(isWorking)
             return;
 
-        if(e.deltaY < 0){
-            var preNode = current.previousElementSibling;
+        if(e.deltaY < 0){ // 왼쪽
+            var prevNode = current.previousElementSibling;
 
             current.classList.remove("active");
-            preNode.classList.add("active");
-            current = preNode;
+            prevNode.classList.add("active");
+            current = prevNode;
+            
         }
-        else{
+        else{ // 오른쪽
             var nextNode = current.nextElementSibling;
+
             current.classList.remove("active");
             nextNode.classList.add("active");
             current = nextNode;
         }
 
         isWorking = true;
+        // img.src = current.자식이미지.src;
         img.src = current.firstElementChild.src;
-
         current.ontransitionend = function(){
             isWorking = false;
-        }
-    }
+            //img.src = current.firstElementChild.src;
+        }        
+    };
 
+    //var height = parseInt(img.style.height);
     var scale = 1;
     img.onwheel = function(e){
         e.preventDefault();
+        
+        // console.log(e.deltaY);
+        // console.log(e.deltaMode);
 
-        console.log(e.deltaY);
-        console.log(e.deltaMode);
-        //height += (e.deltaY/10);
-        scale += e.deltaY * 0.001;
+        //height += e.deltaY/10;
+        scale += e.deltaY*0.001;
+        
         console.log(scale);
-        //img.style.height = height + "%";
+        //console.log(height);
+        //img.style.height = height+"%";
         img.style.transform = "scale("+scale+")";
     };
 });
@@ -70,10 +118,10 @@ window.addEventListener("load",function(){
             return;
         }
 
-        if(e.code == "Delete"){
+        if(e.code =="Delete"){
 
             console.log(e.target);
-            e.target.classList.add("delete");
+            e.target.classList.add("aaa");
             console.log(e.target.classList);
         }
     }
