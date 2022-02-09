@@ -1,31 +1,58 @@
 window.addEventListener("load", function(){
     var section = document.querySelector("#s9-1");
-    var nowImage = section.querySelector(".first");
-    
+    var pageBox= section.querySelector(".page-box");
+    var current = pageBox.querySelector(".first");
+    var isMoveing = false;
     // img.parentElement;
     // img.previousElementSibling;
     // img.nextElementSibling;
     // img.children[0];
     // img.firstElementChild;
     // img.lastElementChild;
-    nowImage.onwheel = function(e) {
+    var zIndex = 1;
+    pageBox.onwheel = function(e) {
         e.preventDefault();
-        if(e.deltaY > 0){
-            var nextNode = nowImage.nextElementSibling;
-            nowImage.classList.add("moveUp");
-            nowImage.classList.remove("first");
-            nowImage = nextNode;
 
+        if(isMoveing)
+            return;
+
+        isMoveing = true;
+
+        current.classList.remove("moveUp");
+        current.classList.remove("moveDown");
+
+        if(e.deltaY > 0){
+            var nextNode = current.nextElementSibling; 
+             if(nextNode == null)
+                return;
+            nextNode.classList.add("moveUp");
+            current.classList.remove("moveUp");
+            current.classList.add("first");
+            current = nextNode;
+             
         }else if(e.deltaY < 0){
-            var nextNode = nowImage.nextElementSibling;
-            nowImage.classList.remove("moveDown");
-            nextNode.classList.add("moveDown");
-            nowImage = nextNode;
+           var preNode = current.previousElementSibling;
+           if(preNode == null) 
+              return;
+            current.classList.add("moveDown");
+            preNode.classList.add("first");
+            current = preNode;
         }
     }
-    nowImage.ontransitionend = function(){
-        //nowImage.classList.add("first");
-    }
+
+    pageBox.addEventListener("animationend",function(e){
+        if(e.animationName == "slideup"){
+            var node = current.previousElementSibling;
+            node.classList.remove("first");
+        }else if(e.animationName == "slidedown"){
+            var node = current.nextElementSibling;
+            node.classList.remove("moveDown");
+            node.classList.remove("first");
+        }
+        
+        isMoveing = false;
+
+    },false);
 });
 // --- <h1>9. 이벤트 다루기(wheel) : 이미지 쇼룸</h1> ----------------------------------
 window.addEventListener("load", function(){
