@@ -1,33 +1,57 @@
 
-window.addEventListener("load",function(){
+// --- <h1>9. 이벤트 다루기(focus/blur/tabindex), 스타일(:valid,..) : 입력 값 유효성 검사하기</h1> ----------------------------------
+window.addEventListener("load", function(){
     var section = document.querySelector("#s9");    
-    var images= section.querySelectorAll(".img-list-box>ul>li>img");
-    var imageUl = section.querySelector(".img-list-box");
+    var showRoom = section.querySelector(".show-room");
+    var imgListBox= section.querySelector(".img-list-box");
+    var img = showRoom.querySelector("img");
 
-    var imageWidths = [];
-    for(var i = 0; i < images.length; i++){
-        var targetStyle = window.getComputedStyle(images[i]);
-        var width = parseInt(targetStyle.getPropertyValue("width"));
-        imageWidths.add(width);
+    var current = imgListBox.querySelector(".active");
+    var isWorking = false; 
+   
+    section.onkeydown = function(e){
+        console.log(e.code);
     }
-    var clickNum = 0; 
-    var pos = [];
+    imgListBox.onwheel = function(e){
+        e.preventDefault();
 
-    (function(){
-        for(var i; i < images.length; i++)
-        pos.add(i);
-    })();
+        if(isWorking)
+            return;
 
+        if(e.deltaY < 0){
+            var preNode = current.previousElementSibling;
 
+            current.classList.remove("active");
+            preNode.classList.add("active");
+            current = preNode;
+        }
+        else{
+            var nextNode = current.nextElementSibling;
+            current.classList.remove("active");
+            nextNode.classList.add("active");
+            current = nextNode;
+        }
 
-    imageUl.onclick = function(){
-        clickNum++;
-        for(var i = 0; i < images.length; i++){
-            var value = (100 * clickNum); 
-            images[i].style.left =  + "px";
+        isWorking = true;
+        img.src = current.firstElementChild.src;
+
+        current.ontransitionend = function(){
+            isWorking = false;
         }
     }
-    
+
+    var scale = 1;
+    img.onwheel = function(e){
+        e.preventDefault();
+
+        console.log(e.deltaY);
+        console.log(e.deltaMode);
+        //height += (e.deltaY/10);
+        scale += e.deltaY * 0.001;
+        console.log(scale);
+        //img.style.height = height + "%";
+        img.style.transform = "scale("+scale+")";
+    };
 });
 
 window.addEventListener("load",function(){
@@ -46,10 +70,10 @@ window.addEventListener("load",function(){
             return;
         }
 
-        if(e.code =="Delete"){
+        if(e.code == "Delete"){
 
             console.log(e.target);
-            e.target.classList.add("aaa");
+            e.target.classList.add("delete");
             console.log(e.target.classList);
         }
     }
