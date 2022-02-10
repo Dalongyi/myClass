@@ -1,59 +1,106 @@
+
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s9-1");
-    var pageBox= section.querySelector(".page-box");
-    var current = pageBox.querySelector(".first");
-    var isMoveing = false;
-    // img.parentElement;
-    // img.previousElementSibling;
-    // img.nextElementSibling;
-    // img.children[0];
-    // img.firstElementChild;
-    // img.lastElementChild;
-    var zIndex = 1;
-    pageBox.onwheel = function(e) {
-        e.preventDefault();
+    var section = document.querySelector("#s9-2");    
+    var box = section.querySelector(".box");
 
-        if(isMoveing)
-            return;
+    box.onscroll = function(){
+        console.log("box scroll");
 
-        isMoveing = true;
-
-        current.classList.remove("moveUp");
-        current.classList.remove("moveDown");
-
-        if(e.deltaY > 0){
-            var nextNode = current.nextElementSibling; 
-             if(nextNode == null)
-                return;
-            nextNode.classList.add("moveUp");
-            current.classList.remove("moveUp");
-            current.classList.add("first");
-            current = nextNode;
-             
-        }else if(e.deltaY < 0){
-           var preNode = current.previousElementSibling;
-           if(preNode == null) 
-              return;
-            current.classList.add("moveDown");
-            preNode.classList.add("first");
-            current = preNode;
-        }
+    }
+    document.onscroll = function(){
+        console.log("document scroll");
     }
 
-    pageBox.addEventListener("animationend",function(e){
-        if(e.animationName == "slideup"){
-            var node = current.previousElementSibling;
-            node.classList.remove("first");
-        }else if(e.animationName == "slidedown"){
-            var node = current.nextElementSibling;
-            node.classList.remove("moveDown");
-            node.classList.remove("first");
-        }
-        
-        isMoveing = false;
-
-    },false);
+    window.onscroll = function(){
+        console.log("window scroll");
+    }
 });
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s9-1");    
+    var box = section.querySelector(".page-box");
+    var pages = section.querySelectorAll(".page");
+    var index = 0;
+    var isWorking = false;
+    
+    if(isWorking)
+        return;
+    box.onwheel = function(e){
+        e.preventDefault();
+
+        if(e.deltaY > 0){
+            index++
+            pages[index].classList.add("active");
+            isWorking=true;
+        }
+        else{
+            pages[index].classList.remove("active");
+            index--;
+            isWorking=true;
+        }
+        console.log(e.deltaY);
+    }    
+
+    pages[index].ontransitionend = function(){
+        isWorking = false;
+    }
+});
+
+//window.addEventListener("load", function(){
+//     var section = document.querySelector("#s9-1");
+//     var pageBox= section.querySelector(".page-box");
+//     var current = pageBox.querySelector(".first");
+//     var isMoveing = false;
+//     // img.parentElement;
+//     // img.previousElementSibling;
+//     // img.nextElementSibling;
+//     // img.children[0];
+//     // img.firstElementChild;
+//     // img.lastElementChild;
+//     var zIndex = 1;
+//     pageBox.onwheel = function(e) {
+//         e.preventDefault();
+
+//         if(isMoveing)
+//             return;
+
+//         isMoveing = true;
+
+//         current.classList.remove("moveUp");
+//         current.classList.remove("moveDown");
+
+//         if(e.deltaY > 0){
+//             var nextNode = current.nextElementSibling; 
+//              if(nextNode == null)
+//                 return;
+//             nextNode.classList.add("moveUp");
+//             current.classList.remove("moveUp");
+//             current.classList.add("first");
+//             current = nextNode;
+             
+//         }else if(e.deltaY < 0){
+//            var preNode = current.previousElementSibling;
+//            if(preNode == null) 
+//               return;
+//             current.classList.add("moveDown");
+//             preNode.classList.add("first");
+//             current = preNode;
+//         }
+//     }
+
+//     pageBox.addEventListener("animationend",function(e){
+//         if(e.animationName == "slideup"){
+//             var node = current.previousElementSibling;
+//             node.classList.remove("first");
+//         }else if(e.animationName == "slidedown"){
+//             var node = current.nextElementSibling;
+//             node.classList.remove("moveDown");
+//             node.classList.remove("first");
+//         }
+        
+//         isMoveing = false;
+
+//     },false);
+// });
 // --- <h1>9. 이벤트 다루기(wheel) : 이미지 쇼룸</h1> ----------------------------------
 window.addEventListener("load", function(){
     var section = document.querySelector("#s9");    
