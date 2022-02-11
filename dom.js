@@ -1,81 +1,154 @@
-window.addEventListener("load", function(){
-    var section = document.querySelector("#s10");    
-    var box = section.querySelector(".box");
-    var item = box.querySelector(".item");
-    var mouseDown = false;
+// window.addEventListener("load", function(){
+//     var section = document.querySelector("#s10");    
+//     var box = section.querySelector(".box");
+//     var item = box.querySelector(".item");
+//     var mouseDown = false;
 
+//     box.onmousemove = function(e){
+//         if(!mouseDown)
+//             return;
+//         item.style.left = e.x + "px";
+//         item.style.top= e.y + "px";
+//     }
+
+//     box.onmousedown= function (){
+//         mouseDown = true;
+//     }
+
+//     box.onmouseup= function(){
+//         mouseDown = false;
+//     }
+// });
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s10"); 
+    var box = section.querySelector(".box"); 
+    var item = section.querySelector(".item"); 
+    var isclick = false;
+    //onmouseup onmousedown
     box.onmousemove = function(e){
-        if(!mouseDown)
+        if(!isclick)
             return;
         item.style.left = e.x + "px";
-        item.style.top= e.y + "px";
+        item.style.top = e.y + "px";
     }
 
-    box.onmousedown= function (){
-        mouseDown = true;
+    box.onmousedown = function(e){
+        console.log("down");
+        isclick = true;
     }
 
-    box.onmouseup= function(){
-        mouseDown = false;
+    box.onmouseup = function(e){
+        console.log("up");
+        isclick = false;
     }
 });
+
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s9-2");    
+    var section = document.querySelector("#s9-2");
     var box = section.querySelector(".box");
     var bar = box.querySelector(".bar");
+    var item = box.querySelector(".item");
 
-    box.onscroll = function(e){
-        console.log(e.target.scrollTop);
+
+    box.onscroll= function(){
+
+    console.log("window-innerHeigt : " + window.innerHeight);
+    console.log("window-width : " + window.innerWidth);
+    console.log("box.offsetTop" + box.offsetTop);
+    console.log("window.scrollY" + window.scrollY);
+    }
+});
+
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s9-1");
+    var pageBox = section.querySelector(".page-box");
+    var active = pageBox.querySelector(".active");
+    var isMoving = false;
+    pageBox.onwheel= function(e){
+        e.preventDefault();
+        if(isMoving)
+            return;
+        if(e.deltaY > 0){
+            var next = active.nextElementSibling;
+            if(next == null)
+                return;
+            next.classList.add("active");
+            active = next;
+        }else if(e.deltaY < 0){
+            var before = active.previousElementSibling;
+            if(before == null)
+                return;
+            active.classList.remove("active");
+            active = before;
+        }
+        isMoving = true;
     }
 
-    document.onscroll = function(){
-        var y =  window.innerHeight- (box.offsetTop - window.scrollY);
-
-        var progress = y/3 > 100 ? 100 : y/3;
-        //console.log(progress);
-
-        box.style.opacity = progress / 100.0;
-        bar.style.width = progress+"%";
+    pageBox.ontransitionend = function(){
+        isMoving = false;
     }
 
 });
+//window.addEventListener("load", function(){
+//     var section = document.querySelector("#s9-2");    
+//     var box = section.querySelector(".box");
+//     var bar = box.querySelector(".bar");
+//
+//     box.onscroll = function(e){
+//         console.log(e.target.scrollTop);
+//     }
+//
+//     document.onscroll = function(){
+//         var y =  window.innerHeight- (box.offsetTop - window.scrollY);
+//
+//         var progress = y/3 > 100 ? 100 : y/3;
+//         //console.log(progress);
+//
+//         box.style.opacity = progress / 100.0;
+//         bar.style.width = progress+"%";
+//     }
+//
+//});
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s9-1");    
-    var box = section.querySelector(".page-box");
-    var pages = section.querySelectorAll(".page");
-    var index = 0;
-    var isWorking = false;
+
+});
+//window.addEventListener("load", function(){
+    //var section = document.querySelector("#s9-1");    
+    //var box = section.querySelector(".page-box");
+    //var pages = section.querySelectorAll(".page");
+    //var index = 0;
+    //var isWorking = false;
     
-    box.onwheel = function(e){
+    //box.onwheel = function(e){
 
-        if(!e.ctrlKey)
-            return;
-        // if(isWorking)
-        //     return;
+    //    if(!e.ctrlKey)
+    //        return;
+    //    // if(isWorking)
+    //    //     return;
 
-        e.preventDefault();
-        isWorking = true;
-        if(e.deltaY > 0) {
-            if(index >= pages.length - 1){
-                isWorking = false;
-                return;    
-            }
-            index++;
-            pages[index].classList.add("active");
-        }else{
-            pages[index].classList.remove("active");
-            if(index <= 0){
-                isWorking = false;
-                return;    
-            }
-            index--;
-        }
-        console.log(index);
-    };    
+    //    e.preventDefault();
+    //    isWorking = true;
+    //    if(e.deltaY > 0) {
+    //        if(index >= pages.length - 1){
+    //            isWorking = false;
+    //            return;    
+    //        }
+    //        index++;
+    //        pages[index].classList.add("active");
+    //    }else{
+    //        pages[index].classList.remove("active");
+    //        if(index <= 0){
+    //            isWorking = false;
+    //            return;    
+    //        }
+    //        index--;
+    //    }
+    //    console.log(index);
+    //};    
 
-    box.ontransitionend = function(){
-        isWorking = false; 
-    }
+    //box.ontransitionend = function(){
+    //    isWorking = false; 
+    //}
         // if(isWorking)
         //     return;
 
@@ -102,7 +175,7 @@ window.addEventListener("load", function(){
     // box.ontransitionend = function(){
     //     isWorking = false;
     // }
-});
+//});
 
 //window.addEventListener("load", function(){
 //     var section = document.querySelector("#s9-1");
@@ -160,106 +233,185 @@ window.addEventListener("load", function(){
 
 //     },false);
 // });
-// --- <h1>9. 이벤트 다루기(wheel) : 이미지 쇼룸</h1> ----------------------------------
+
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s9");    
-    var imgListBox = section.querySelector(".img-list-box");
+    var section = document.querySelector("#s9");
+    var listBox = section.querySelector(".img-list-box");
+    var active = listBox.querySelector(".active");
     var showRoom = section.querySelector(".show-room");
     var img = showRoom.querySelector("img");
-    
-    var current = imgListBox.querySelector(".active");
-    var isWorking = false;
-
+    var imgSize = 40;
+    img.src = active.firstElementChild.src;
+         // img.parentElement;
+         // img.previousElementSibling;
+         // img.nextElementSibling;
+         // img.children[0];
+         // img.firstElementChild;
+         // img.lastElementChild;
     section.onkeydown = function(e){
-        if(e.code == "ArrowLeft"){
-            
-        }
-        else if(e.code == "ArrowRight"){
-
-        }
-
-    };
-
-    imgListBox.onwheel = function(e){
-        if(!e.ctrlKey)
-        return;
-        e.preventDefault();
-        // img.parentElement;
-        // img.previousElementSibling;
-        // img.nextElementSibling;
-        // img.children[0];
-        // img.firstElementChild;
-        // img.lastElementChild;
-        if(isWorking)
-            return;
-
-        if(e.deltaY < 0){ // 왼쪽
-            var prevNode = current.previousElementSibling;
-
-            current.classList.remove("active");
-            prevNode.classList.add("active");
-            current = prevNode;
-            
-        }
-        else{ // 오른쪽
-            var nextNode = current.nextElementSibling;
-
-            current.classList.remove("active");
+        if(e.code == "ArrowRight"){
+            var nextNode = active.nextElementSibling;
+            if(nextNode == null)
+                return;
             nextNode.classList.add("active");
-            current = nextNode;
+            active.classList.remove("active");
+            active = nextNode;
+        } else if(e.code == "ArrowLeft"){
+            var preNode = active.previousElementSibling;
+            if(preNode == null)
+                return;
+            preNode.classList.add("active");
+            active.classList.remove("active");
+            active = preNode;
         }
 
-        isWorking = true;
-        // img.src = current.자식이미지.src;
-        img.src = current.firstElementChild.src;
-        current.ontransitionend = function(){
-            isWorking = false;
-            //img.src = current.firstElementChild.src;
-        }        
-    };
+        img.src = active.firstElementChild.src;
+    }
+
+
+    listBox.onwheel = function(e){
+        e.preventDefault();
+
+        if(e.deltaY > 0){
+            var nextNode = active.nextElementSibling;            
+            if(nextNode == null)
+                return;
+            nextNode.classList.add("active");
+            active.classList.remove("active");
+            active = nextNode;
+        }
+        else if(e. deltaY < 0){
+            var preNode = active.previousElementSibling;
+            if(preNode == null)
+                return;
+            preNode.classList.add("active");
+            active.classList.remove("active");
+            active = preNode;
+        }
+
+        img.src = active.firstElementChild.src;
+    }
+
+    var scale = 1;
+    showRoom.onwheel = function(e){
+        e.preventDefault();
+        if(scale < 0.3)
+            scale = 0.3;
+        if(scale > 1)
+            scale = 1;
+
+        scale += 0.001 * e.deltaY; 
+        img.style.transform = "scale("+scale+")";
+    }
+
+
+});
+// --- <h1>9. 이벤트 다루기(wheel) : 이미지 쇼룸</h1> ----------------------------------
+// window.addEventListener("load", function(){
+//     var section = document.querySelector("#s9");    
+//     var imgListBox = section.querySelector(".img-list-box");
+//     var showRoom = section.querySelector(".show-room");
+//     var img = showRoom.querySelector("img");
+    
+//     var current = imgListBox.querySelector(".active");
+//     var isWorking = false;
+
+//     section.onkeydown = function(e){
+//         if(e.code == "ArrowLeft"){
+            
+//         }
+//         else if(e.code == "ArrowRight"){
+
+//         }
+
+//     };
+
+//     imgListBox.onwheel = function(e){
+//         if(!e.ctrlKey)
+//         return;
+//         e.preventDefault();
+//         // img.parentElement;
+//         // img.previousElementSibling;
+//         // img.nextElementSibling;
+//         // img.children[0];
+//         // img.firstElementChild;
+//         // img.lastElementChild;
+//         if(isWorking)
+//             return;
+
+//         if(e.deltaY < 0){ // 왼쪽
+//             var prevNode = current.previousElementSibling;
+
+//             current.classList.remove("active");
+//             prevNode.classList.add("active");
+//             current = prevNode;
+            
+//         }
+//         else{ // 오른쪽
+//             var nextNode = current.nextElementSibling;
+
+//             current.classList.remove("active");
+//             nextNode.classList.add("active");
+//             current = nextNode;
+//         }
+
+//         isWorking = true;
+//         // img.src = current.자식이미지.src;
+//         img.src = current.firstElementChild.src;
+//         current.ontransitionend = function(){
+//             isWorking = false;
+//             //img.src = current.firstElementChild.src;
+//         }        
+//     };
 
     //var height = parseInt(img.style.height);
-    var scale = 1;
-    img.onwheel = function(e){
-        e.preventDefault();
+//     var scale = 1;
+//     img.onwheel = function(e){
+//         e.preventDefault();
         
-        // console.log(e.deltaY);
-        // console.log(e.deltaMode);
+//         // console.log(e.deltaY);
+//         // console.log(e.deltaMode);
 
-        //height += e.deltaY/10;
-        scale += e.deltaY*0.001;
+//         //height += e.deltaY/10;
+//         scale += e.deltaY*0.001;
         
-        console.log(scale);
-        //console.log(height);
-        //img.style.height = height+"%";
-        img.style.transform = "scale("+scale+")";
-    };
-});
-
-window.addEventListener("load",function(){
-    var section = document.querySelector("#s8-1");    
+//         console.log(scale);
+//         //console.log(height);
+//         //img.style.height = height+"%";
+//         img.style.transform = "scale("+scale+")";
+//     };
+// });
+window.addEventListener("loat", function(){
+    var section = document.querySelector("#8-1");
     var box = section.querySelector(".box");
 
     box.onclick = function(e){
-        if(e.target.classList.contains("box")){
-            console.log("box line 밖");
-            return;
-        }
-    }
-
-    box.onkeydown = function(e){
-        if(e.target.classList.contains("box")){
-            return;
-        }
-
-        if(e.code =="Delete"){
-
-            console.log(e.target);
-            e.target.classList.add("aaa");
-            console.log(e.target.classList);
-        }
     }
 });
+//window.addEventListener("load",function(){
+//    var section = document.querySelector("#s8-1");    
+//    var box = section.querySelector(".box");
+//
+//    box.onclick = function(e){
+//        if(e.target.classList.contains("box")){
+//            console.log("box line 밖");
+//            return;
+//        }
+//    }
+//
+//    box.onkeydown = function(e){
+//        if(e.target.classList.contains("box")){
+//            return;
+//        }
+//
+//        if(e.code =="Delete"){
+//
+//            console.log(e.target);
+//            e.target.classList.add("aaa");
+//            console.log(e.target.classList);
+//        }
+//    }
+//});
 // --- <h1>8. 이벤트 다루기(focus/blur/tabindex), 스타일(:valid,..) : 입력 값 유효성 검사하기</h1> ----------------------------------
 window.addEventListener("load", function(){
     var section = document.querySelector("#s8");    
