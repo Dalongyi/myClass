@@ -1,19 +1,43 @@
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s10");    
+    var box = section.querySelector(".box");
+    var item = box.querySelector(".item");
+    var mouseDown = false;
 
+    box.onmousemove = function(e){
+        if(!mouseDown)
+            return;
+        item.style.left = e.x + "px";
+        item.style.top= e.y + "px";
+    }
+
+    box.onmousedown= function (){
+        mouseDown = true;
+    }
+
+    box.onmouseup= function(){
+        mouseDown = false;
+    }
+});
 window.addEventListener("load", function(){
     var section = document.querySelector("#s9-2");    
     var box = section.querySelector(".box");
+    var bar = box.querySelector(".bar");
 
-    box.onscroll = function(){
-        console.log("box scroll");
-
+    box.onscroll = function(e){
+        console.log(e.target.scrollTop);
     }
+
     document.onscroll = function(){
-        console.log("document scroll");
+        var y =  window.innerHeight- (box.offsetTop - window.scrollY);
+
+        var progress = y/3 > 100 ? 100 : y/3;
+        //console.log(progress);
+
+        box.style.opacity = progress / 100.0;
+        bar.style.width = progress+"%";
     }
 
-    window.onscroll = function(){
-        console.log("window scroll");
-    }
 });
 window.addEventListener("load", function(){
     var section = document.querySelector("#s9-1");    
@@ -23,11 +47,13 @@ window.addEventListener("load", function(){
     var isWorking = false;
     
     box.onwheel = function(e){
-        e.preventDefault();
 
+        if(!e.ctrlKey)
+            return;
         // if(isWorking)
         //     return;
 
+        e.preventDefault();
         isWorking = true;
         if(e.deltaY > 0) {
             if(index >= pages.length - 1){
@@ -155,8 +181,9 @@ window.addEventListener("load", function(){
     };
 
     imgListBox.onwheel = function(e){
+        if(!e.ctrlKey)
+        return;
         e.preventDefault();
-
         // img.parentElement;
         // img.previousElementSibling;
         // img.nextElementSibling;

@@ -1,13 +1,66 @@
+#s10 .box{
+
+    height: 300px;
+    background-color: gray;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#s10 .item{
+    font-size: 30px;
+    font-weight: bold;
+    color:#fff;
+
+    position: absolute;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    background-color: lightgreen;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+#s9-2{
+}
+
+
 #s9-2 .box{
     height: 300px;
     background-color: gray;
 
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    opacity: 0;
+}
+
+#s9-2 .box>.bar{
+    content:" ";
+    /* height: 0px;
+    overflow: hidden; */
+    width: 10%;
+    height: 3px;
+    background-color: blue;
+    display: block;
+    position: absolute;
+
+    top:0px;
+    left:0px;
+
+    transition: width 400ms;
 }
 
 #s9-2 .item{
