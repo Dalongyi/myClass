@@ -279,7 +279,7 @@
     background: url("images/1.jpg") no-repeat right -10px center;
 }
 
-#s7 .box{
+#s7-1 .box{
     height: 400px;
     background-color: #c5c5c5;
     position: relative;
@@ -287,18 +287,18 @@
     display: flex;
 }
 
-#s7 .box .src-item-list{
+#s7-1 .box .src-item-list{
     width:400px;
 }
 
 
-#s7 .box .dst-item-list{
+#s7-1 .box .dst-item-list{
     flex-grow: 1;    
 }
 
 
 
-#s7 .box .item{
+#s7-1 .box .item{
     font-size: 30px;
     font-weight: bold;
 
@@ -315,42 +315,42 @@
     justify-content: center;
 }
 
-#s7 .src-item-list .item:nth-child(1){    
+#s7-1 .src-item-list .item:nth-child(1){    
     left : 0px;
     top: 0px;
 }
 
-#s7 .src-item-list .item:nth-child(2){    
+#s7-1 .src-item-list .item:nth-child(2){    
     left : 0px;
     top: 150px;
 }
 
-#s7 .src-item-list .item:nth-child(3){    
+#s7-1 .src-item-list .item:nth-child(3){    
     left : 0px;
     top: 250px;
 }
-#s7 .src-item{
+#s7-1 .src-item{
     /* effect */
     transition: left 1s, top 1s, transform 1s, background-color 1s;
 }
 
-#s7 .dst-item-list .item:nth-child(1){    
+#s7-1 .dst-item-list .item:nth-child(1){    
     left : 450px;
     top: 10px;
 }
 
-#s7 .dst-item-list .item:nth-child(2){    
+#s7-1 .dst-item-list .item:nth-child(2){    
     left : 400px;
     top: 150px;
 }
 
-#s7 .dst-item-list .item:nth-child(3){    
+#s7-1 .dst-item-list .item:nth-child(3){    
     left : 550px;
     top: 250px;
 }
 
 
-#s7 .src-item.finished{
+#s7-1 .src-item.finished{
     background-color: green;
 }
 

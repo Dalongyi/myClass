@@ -268,7 +268,6 @@ window.addEventListener("load", function(){
         img.src = active.firstElementChild.src;
     }
 
-
     listBox.onwheel = function(e){
         e.preventDefault();
 
@@ -303,8 +302,6 @@ window.addEventListener("load", function(){
         scale += 0.001 * e.deltaY; 
         img.style.transform = "scale("+scale+")";
     }
-
-
 });
 // --- <h1>9. 이벤트 다루기(wheel) : 이미지 쇼룸</h1> ----------------------------------
 // window.addEventListener("load", function(){
@@ -433,49 +430,77 @@ window.addEventListener("load", function(){
 
 // 7
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s7");
-    var box = section.querySelector(".box");
-    var firstBox = section.querySelector(".active");
-    var isFirstClick = false;
-    var isSecondClick = false;
-    box.onclick=function(e){
-        
-        if(e.target.classList.contains("src-item"))
-            isFirstClick = true;
-        else if(e.target.classList.contains("dst-item") && isFirstClick){
-            isFirstClick = false;
-            isSecondClick = true;
-        }
-        else
-            return;
+    var section = document.querySelector("#s7-1");
+    var clickBox = section.querySelector(".src-item-list");
+    var srcBoxs = section.querySelectorAll(".src-item");
+    var dstBox = section.querySelector(".dst-item-list");
 
-
-        if(isFirstClick){
-            if(firstBox!=null)
-                firstBox.classList.remove("active");
-            e.target.classList.add("active");
-            firstBox= e.target;
-        }else if(isSecondClick){
-            var targetStyle = window.getComputedStyle(e.target);
-            var left = targetStyle.getPropertyValue("left");
-            var top = targetStyle.getPropertyValue("top");
-            firstBox.style.left = left;
-            firstBox.style.top = top;
-            firstBox.style.transform = "rotate(360deg)";
-            //var left = Math.round(e.target.getBoundingClientRect().left);
-            //var top = Math.round(e.target.getBoundingClientRect().top);
-            //firstBox.style.left = (left - box.offsetLeft) + "px";    
-            //firstBox.style.top = (top - box.offsetTop) + "px";    
-            firstBox.ontransitionend = function(){
-            console.log("끝");
-            firstBox.classList.add("finished");
-            firstBox.ontransitionend = null;
-            }
-        }
-
-        
+    clickBox.onclick = function(e){
+        clickBox.classList.remove("active");
+        clickBox.ontransitionend = null; 
+        e.target.classList.add("active");
+        clickBox = e.target;
+        console.log(clickBox.ontransitionend);
     }
+
+    
+    dstBox.onclick = function(e){
+        var style = window.getComputedStyle(e.target);
+        var left = style.getPropertyValue("left");
+        var top = style.getPropertyValue("top");
+
+        clickBox.style.left = left;
+        clickBox.style.top = top;
+        clickBox.ontransitionend = function(e){
+            clickBox.classList.add("finished");
+        };
+    };
 });
+
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s7");
+//    var box = section.querySelector(".box");
+//    var firstBox = section.querySelector(".active");
+//    var isFirstClick = false;
+//    var isSecondClick = false;
+//    box.onclick=function(e){
+//        
+//        if(e.target.classList.contains("src-item"))
+//            isFirstClick = true;
+//        else if(e.target.classList.contains("dst-item") && isFirstClick){
+//            isFirstClick = false;
+//            isSecondClick = true;
+//        }
+//        else
+//            return;
+//
+//
+//        if(isFirstClick){
+//            if(firstBox!=null)
+//                firstBox.classList.remove("active");
+//            e.target.classList.add("active");
+//            firstBox= e.target;
+//        }else if(isSecondClick){
+//            var targetStyle = window.getComputedStyle(e.target);
+//            var left = targetStyle.getPropertyValue("left");
+//            var top = targetStyle.getPropertyValue("top");
+//            firstBox.style.left = left;
+//            firstBox.style.top = top;
+//            firstBox.style.transform = "rotate(360deg)";
+//            //var left = Math.round(e.target.getBoundingClientRect().left);
+//            //var top = Math.round(e.target.getBoundingClientRect().top);
+//            //firstBox.style.left = (left - box.offsetLeft) + "px";    
+//            //firstBox.style.top = (top - box.offsetTop) + "px";    
+//            firstBox.ontransitionend = function(){
+//            console.log("끝");
+//            firstBox.classList.add("finished");
+//            firstBox.ontransitionend = null;
+//            }
+//        }
+//
+//        
+//    }
+//});
 
 // ---6. 스타일 다루기: 아코디언-------------------------
 
@@ -519,35 +544,82 @@ window.addEventListener("load", function(){
 
 
 });
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s6");
+//    var box = section.querySelector(".accordion-box");
+//    var current = null;
+//    box.onclick = function(e){
+//        if(current != null)
+//            current.classList.remove("active");
+//        e.target.classList.toggle("active"); 
+//
+//        current = e.target;    
+//    }
+//});
 //-------------------------------------------
 //5-1. 숙제) 카드클릭시 이동
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s5-1");
+//    var card = section.querySelector("ul");
+//    var lis = section.querySelectorAll("li");
+//
+//    var cardNames = [];
+//    lis.forEach(function(item){
+//        cardNames.push(item.className);
+//    });
+//
+//    var pos = [];
+//    (function(){
+//        for(var i = 0; i < cardNames.length; i++)
+//            pos.push(i);
+//    })();
+//
+//    // 유연성 가독성
+//    card.onclick = function(e){
+//
+//        var clickPosIndex = cardNames.indexOf(e.target.className);
+//        var lastIndex = lis.length - 1;
+//
+//        for(var i = 0; i < lis.length; i++){
+//            if(clickPosIndex == 0)
+//                lis[i].className = cardNames[pos[i] = pos[i] + 1 > lastIndex ? 0 : pos[i] + 1];  
+//            else if(clickPosIndex == lastIndex)
+//                lis[i].className = cardNames[pos[i] = pos[i] - 1 < 0 ? lastIndex : pos[i] - 1];  
+//        }
+//    }
+//});
+
 window.addEventListener("load", function(){
     var section = document.querySelector("#s5-1");
-    var card = section.querySelector("ul");
-    var lis = section.querySelectorAll("li");
+    var box = section.querySelector(".box");
+    var items = box.querySelectorAll(".item");
+    var classNames = [] ;
+    
+    for(var i = 0; i < items.length; i++){
+        classNames.push(items[i].className);
+    }
 
-    var cardNames = [];
-    lis.forEach(function(item){
-        cardNames.push(item.className);
-    });
+    box.onclick = function(e){
+        if(e.target.className == "box" || e.target.tagName == "UL")
+            return;
 
-    var pos = [];
-    (function(){
-        for(var i = 0; i < cardNames.length; i++)
-            pos.push(i);
-    })();
+        var click = e.target.className;
 
-    // 유연성 가독성
-    card.onclick = function(e){
+        var clickIndex = 0;;
+        for(var i = 0; i < items.length; i++){
+            if(items[i].className == click)
+                clickIndex = i;
+        }
+        console.log(clickIndex);
 
-        var clickPosIndex = cardNames.indexOf(e.target.className);
-        var lastIndex = lis.length - 1;
+        if(clickIndex == 0){
+            for(var i = 0; i < items.length; i++) {
+                var index = i + 1 > items.length - 1 ? 0 : i + 1;
+                items[index].className = classNames[i];
+            }       
+            console.log(items);
+        }else if(e.target.className == "card-3th"){
 
-        for(var i = 0; i < lis.length; i++){
-            if(clickPosIndex == 0)
-                lis[i].className = cardNames[pos[i] = pos[i] + 1 > lastIndex ? 0 : pos[i] + 1];  
-            else if(clickPosIndex == lastIndex)
-                lis[i].className = cardNames[pos[i] = pos[i] - 1 < 0 ? lastIndex : pos[i] - 1];  
         }
     }
 });
@@ -574,34 +646,68 @@ window.addEventListener("load", function(){
 //<h1>4. 스타일 다루기 : 값 입력과 동적으로 박스 스타일 변경하기</h1>
 
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s4");    
+    var section = document.querySelector("#s4");
     var styleInput = section.querySelector(".style-input");
     var widthInput = section.querySelector(".width-input");
-    var radiusInput = section.querySelector(".radius-input");
+    var radiusInput= section.querySelector(".radius-input");
     var colorInput = section.querySelector(".color-input");
-    var item = section.querySelector(".item");
+    var showBox = section.querySelector(".item");
 
-    styleInput.oninput = function(){
-        item.style.borderStyle = styleInput.value;
-        console.log(item.style.cssText);
+    styleInput.oninput = function(e){
+        var preNode = styleInput.previousElementSibling;
+       showBox.style.borderStyle = e.target.value;
+       preNode.innerText = "style :" +e.target.value;
     }
 
-    widthInput.oninput = function(){        
-        item.style.borderWidth = widthInput.value+"px";
-        console.log(item.style.cssText);
+    widthInput.oninput = function(e){
+        var preNode = widthInput.previousElementSibling;
+        showBox.style.borderWidth= e.target.value + "px";
+        preNode.innerText = "width: " + e.target.value + "px";
     }
 
-    radiusInput.oninput = function(){        
-        item.style.borderRadius = radiusInput.value+"px";
-        console.log(item.style.cssText);
-    }
+    radiusInput.oninput = function(e){
+        var preNode = radiusInput.previousElementSibling;
+        showBox.style.borderRadius = e.target.value + "px";
+        preNode.innerText = "radius" + e.target.value + "px";
+    } 
 
-    colorInput.oninput = function(){        
-        item.style.borderColor = colorInput.value;
-        console.log(item.style.cssText);
+    colorInput.oninput = function(e){
+        var preNode = colorInput.previousElementSibling;
+        showBox.style.borderColor = e.target.value;
+        preNode.innerText = "color :" + e.target.value;
     }
 
 });
+
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s4");    
+//    var styleInput = section.querySelector(".style-input");
+//    var widthInput = section.querySelector(".width-input");
+//    var radiusInput = section.querySelector(".radius-input");
+//    var colorInput = section.querySelector(".color-input");
+//    var item = section.querySelector(".item");
+//
+//    styleInput.oninput = function(){
+//        item.style.borderStyle = styleInput.value;
+//        console.log(item.style.cssText);
+//    }
+//
+//    widthInput.oninput = function(){        
+//        item.style.borderWidth = widthInput.value+"px";
+//        console.log(item.style.cssText);
+//    }
+//
+//    radiusInput.oninput = function(){        
+//        item.style.borderRadius = radiusInput.value+"px";
+//        console.log(item.style.cssText);
+//    }
+//
+//    colorInput.oninput = function(){        
+//        item.style.borderColor = colorInput.value;
+//        console.log(item.style.cssText);
+//    }
+//
+//});
 
 // 3-1)숙제 계산기
 window.addEventListener("load", function(){
