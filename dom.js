@@ -9,13 +9,10 @@ window.addEventListener("load", function(){
     box.ondragleave= function(e){
         console.log("leave");
         box.classList.remove("over");
-
     }
     box.ondragover= function(e){
         e.preventDefault();
         console.log("over");
-
-
     }
     box.ondrag= function(e){
         e.preventDefault();
@@ -45,59 +42,152 @@ window.addEventListener("load", function(){
 //     }
 // });
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s10"); 
-    var box = section.querySelector(".box"); 
-    var item = section.querySelector(".item"); 
-    var isclick = false;
+    var section = document.querySelector("#s10");
+    var box = section.querySelector(".box");
+    var item = box.querySelector(".item");
     var offset = {x:0, y:0};
-    //onmouseup onmousedown
-
+    var isclick = false;
     box.onclick = function(e){
-        if(!e.target.classList.contains("item"))
-            return;
-        if(!isclick)
-             return;
-
     }
-    
-    section.onmousemove = function(e){
+
+    box.onmousemove = function(e){
         if(!isclick)
             return;
-
         item.style.left = e.pageX - box.offsetLeft - offset.x + "px";
         item.style.top = e.pageY - box.offsetTop - offset.y + "px";
     }
 
-    section.onmousedown = function(e){
+    box.onmousedown = function(e){
         if(!e.target.classList.contains("item"))
             return;
-        isclick = true;
-
         offset.x = e.offsetX;
         offset.y = e.offsetY;
+        isclick = true;
 
         item = e.target;
-        // var pos1 = "x:" + e.x + ", y:" + e.y + ",";
-        // console.log(pos1);
-
-        // var pos2 = "offsetX :" + e.offsetX + ", offsetY : " + e.offsetY;
-        // console.log(pos2);
-
-        // var pos3 = "pageX:" + e.pageX + ", pageY: " + e.pageY;
-        // console.log(pos3);
-
-        // var pos4 = "screenX:" + e.screenX+ ", pageY: " + e.screenY;
-        // console.log(pos4);
     }
 
-    section.onmouseup = function(e){
-        if(!e.target.classList.contains("item"))
-            return;
-        isclick = false;
-
-        item = null;
+    box.onmouseup = function(e){
+        isclick = false; 
     }
+
 });
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s10");
+//    var box = section.querySelector(".box");
+//    var item = section.querySelector(".item");
+//    var isClick = false;
+//
+//    box.onclick = function(e){
+//    }
+//         var pos1 = "x:" + e.x + ", y:" + e.y + ",";
+//         console.log(pos1);
+//
+//         var pos2 = "offsetX :" + e.offsetX + ", offsetY : " + e.offsetY;
+//         console.log(pos2);
+//
+//         var pos3 = "pageX:" + e.pageX + ", pageY: " + e.pageY;
+//         console.log(pos3);
+//
+//         var pos4 = "screenX:" + e.screenX+ ", pageY: " + e.screenY;
+//         console.log(pos4);
+
+    //box.onclick= function(e){
+    //    console.log("================================");
+    //    var pos1 = "clientX :" + e.clientX+ ", clientY:" + e.clientY + ",";
+    //    console.log(pos1);
+
+    //    var pos2 = "offsetX :" + e.offsetX + ", offsetY : " + e.offsetY;
+    //    console.log(pos2);
+
+    //    var pos3 = "pageX:" + e.pageX + ", pageY: " + e.pageY;
+    //    console.log(pos3);
+
+    //    var pos4 = "screenX:" + e.screenX+ ", screenY: " + e.screenY;
+    //    console.log(pos4);
+
+    //    item.style.left = e.offsetX + "px";
+    //    item.style.top = e.offsetY + "px";
+    //}
+    //var offset = {x:0, y:0};
+    //box.onmousemove = function(e){
+    //// box.onclick= function(e){
+    //     if(!isClick)
+    //         return;
+    //    item.style.left = e.pageX - box.offsetLeft - offset.x + "px";
+    //    item.style.top = e.pageY - box.offsetTop - offset.y + "px";
+    //}
+
+    //box.onmouseup= function(e){
+    //    if(!e.target.classList.contains("item"))
+    //        return;
+    //    isClick = false;
+    //}
+
+    //box.onmousedown= function(e){
+    //    if(!e.target.classList.contains("item"))
+    //        return;
+    //    isClick = true;
+    //    offset.x = e.offsetX;
+    //    offset.y = e.offsetY;
+
+    //    item = e.target;
+    //}
+//});
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s10"); 
+//    var box = section.querySelector(".box"); 
+//    var item = section.querySelector(".item"); 
+//    var isclick = false;
+//    var offset = {x:0, y:0};
+//    //onmouseup onmousedown
+//
+//    box.onclick = function(e){
+//        if(!e.target.classList.contains("item"))
+//            return;
+//        if(!isclick)
+//             return;
+//
+//    }
+//    
+//    section.onmousemove = function(e){
+//        if(!isclick)
+//            return;
+//
+//        item.style.left = e.pageX - box.offsetLeft - offset.x + "px";
+//        item.style.top = e.pageY - box.offsetTop - offset.y + "px";
+//    }
+//
+//    section.onmousedown = function(e){
+//        if(!e.target.classList.contains("item"))
+//            return;
+//        isclick = true;
+//
+//        offset.x = e.offsetX;
+//        offset.y = e.offsetY;
+//
+//        item = e.target;
+//        // var pos1 = "x:" + e.x + ", y:" + e.y + ",";
+//        // console.log(pos1);
+//
+//        // var pos2 = "offsetX :" + e.offsetX + ", offsetY : " + e.offsetY;
+//        // console.log(pos2);
+//
+//        // var pos3 = "pageX:" + e.pageX + ", pageY: " + e.pageY;
+//        // console.log(pos3);
+//
+//        // var pos4 = "screenX:" + e.screenX+ ", pageY: " + e.screenY;
+//        // console.log(pos4);
+//    }
+//
+//    section.onmouseup = function(e){
+//        if(!e.target.classList.contains("item"))
+//            return;
+//        isclick = false;
+//
+//        item = null;
+//    }
+//});
 
 window.addEventListener("load", function(){
     var section = document.querySelector("#s9-2");
@@ -115,36 +205,77 @@ window.addEventListener("load", function(){
     }
 });
 
-window.addEventListener("load", function(){
-    var section = document.querySelector("#s9-1");
-    var pageBox = section.querySelector(".page-box");
-    var active = pageBox.querySelector(".active");
+//     // img.parentElement;
+//     // img.previousElementSibling;
+//     // img.nextElementSibling;
+//     // img.children[0];
+//     // img.firstElementChild;
+//     // img.lastElementChild;
+
+window.addEventListener("load", function(e){
+    var section = this.document.querySelector("#s9-1")
+    var box = section.querySelector(".page-box");
+    var active = box.querySelector(".active");
     var isMoving = false;
-    pageBox.onwheel= function(e){
+
+    box.onwheel = function(e){
         e.preventDefault();
+
         if(isMoving)
             return;
+
+
         if(e.deltaY > 0){
-            var next = active.nextElementSibling;
-            if(next == null)
+            var nextNode = active.nextElementSibling;
+            if(nextNode == null)
                 return;
-            next.classList.add("active");
-            active = next;
-        }else if(e.deltaY < 0){
-            var before = active.previousElementSibling;
-            if(before == null)
+            nextNode.classList.add("active");
+            active = nextNode;
+            isMoving = true;
+        } else if(e.deltaY < 0){
+            var preNode = active.previousElementSibling;
+            if(preNode == null)
                 return;
             active.classList.remove("active");
-            active = before;
+            active = preNode;
+            isMoving = true;
         }
-        isMoving = true;
     }
 
-    pageBox.ontransitionend = function(){
+    box.ontransitionend = function(){
         isMoving = false;
     }
-
 });
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s9-1");
+//    var pageBox = section.querySelector(".page-box");
+//    var active = pageBox.querySelector(".active");
+//    var isMoving = false;
+//    pageBox.onwheel= function(e){
+//        e.preventDefault();
+//        if(isMoving)
+//            return;
+//        if(e.deltaY > 0){
+//            var next = active.nextElementSibling;
+//            if(next == null)
+//                return;
+//            next.classList.add("active");
+//            active = next;
+//        }else if(e.deltaY < 0){
+//            var before = active.previousElementSibling;
+//            if(before == null)
+//                return;
+//            active.classList.remove("active");
+//            active = before;
+//        }
+//        isMoving = true;
+//    }
+//
+//    pageBox.ontransitionend = function(){
+//        isMoving = false;
+//    }
+
+//});
 //window.addEventListener("load", function(){
 //     var section = document.querySelector("#s9-2");    
 //     var box = section.querySelector(".box");
