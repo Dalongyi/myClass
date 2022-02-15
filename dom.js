@@ -1,3 +1,28 @@
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s11"); 
+    var box = section.querySelector(".box"); 
+
+    box.ondragenter = function(e){
+        box.classList.add("over");
+        console.log("enter");
+    }
+    box.ondragleave= function(e){
+        console.log("leave");
+        box.classList.remove("over");
+
+    }
+    box.ondragover= function(e){
+        e.preventDefault();
+        console.log("over");
+
+
+    }
+    box.ondrag= function(e){
+        e.preventDefault();
+        console.log("drop");
+
+    }
+});
 // window.addEventListener("load", function(){
 //     var section = document.querySelector("#s10");    
 //     var box = section.querySelector(".box");
@@ -24,22 +49,53 @@ window.addEventListener("load", function(){
     var box = section.querySelector(".box"); 
     var item = section.querySelector(".item"); 
     var isclick = false;
+    var offset = {x:0, y:0};
     //onmouseup onmousedown
-    box.onmousemove = function(e){
+
+    box.onclick = function(e){
+        if(!e.target.classList.contains("item"))
+            return;
+        if(!isclick)
+             return;
+
+    }
+    
+    section.onmousemove = function(e){
         if(!isclick)
             return;
-        item.style.left = e.x + "px";
-        item.style.top = e.y + "px";
+
+        item.style.left = e.pageX - box.offsetLeft - offset.x + "px";
+        item.style.top = e.pageY - box.offsetTop - offset.y + "px";
     }
 
-    box.onmousedown = function(e){
-        console.log("down");
+    section.onmousedown = function(e){
+        if(!e.target.classList.contains("item"))
+            return;
         isclick = true;
+
+        offset.x = e.offsetX;
+        offset.y = e.offsetY;
+
+        item = e.target;
+        // var pos1 = "x:" + e.x + ", y:" + e.y + ",";
+        // console.log(pos1);
+
+        // var pos2 = "offsetX :" + e.offsetX + ", offsetY : " + e.offsetY;
+        // console.log(pos2);
+
+        // var pos3 = "pageX:" + e.pageX + ", pageY: " + e.pageY;
+        // console.log(pos3);
+
+        // var pos4 = "screenX:" + e.screenX+ ", pageY: " + e.screenY;
+        // console.log(pos4);
     }
 
-    box.onmouseup = function(e){
-        console.log("up");
+    section.onmouseup = function(e){
+        if(!e.target.classList.contains("item"))
+            return;
         isclick = false;
+
+        item = null;
     }
 });
 
