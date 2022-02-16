@@ -1,4 +1,236 @@
+:root{
+    --color-bd-light:lightyellow;
+    --color-bd:#aaa;
+    --color-text: #222;
+    --font-family-gothic: "맑은 고딕";
 
+    --n1: 10px;
+    --n2: 15px;
+    --n2: 20px;
+}
+
+html{
+    font-size: 16px;
+}
+
+/* --- utils ---------------------------------------------------- */
+
+/* display */
+
+.d-none{
+    display: none !important;
+}
+
+.d-block{
+    display: block !important;
+}
+
+.d-inline-block{
+    display: inline-block !important;
+}
+
+/* text-align */
+.text-align-center{
+    text-align: center !important;
+}
+
+.text-align-start{
+    text-align: start !important;
+}
+
+.text-align-end{
+    text-align: end !important;
+}
+
+/* border */
+
+.border-0{
+    border: none !important;
+}
+
+.border-1{
+    border-top: 1px solid var(--color-bd) !important;
+}
+
+/* size */
+.w-25{
+    width:25% !important;
+}
+
+.w-50{
+    width:50% !important;
+}
+
+.w-75{
+    width:75% !important;
+}
+
+.w-100{
+    width:100% !important;
+}
+
+.w-auto{
+    width:auto !important;
+}
+
+/* margin */
+.mt-n1{
+    margin-top: var(--n1) !important;
+}
+
+.mb-n1{
+    margin-bottom: var(--n1) !important;
+}
+
+.mt-0{
+    margin-top: 0 !important;
+}
+
+.mt-1{
+    margin-top: .25rem !important;
+}
+
+.mt-2{
+    margin-top: .5rem !important;
+}
+
+.mt-3{
+    margin-top: 1rem !important;
+}
+
+.mb-0{
+    margin-bottom: 0 !important;
+}
+
+.mb-1{
+    margin-bottom: .25rem !important;    
+}
+
+.mb-2{
+    margin-bottom: .5rem !important;
+}
+
+.mb-3{
+    margin-bottom: 1rem !important;
+}
+
+/* --- content-block ---------------------------------------------- */
+
+
+/* form */
+
+.form{
+    padding:1rem;
+    border:1px solid var(--color-bd);
+}
+
+.form *{
+    box-sizing: border-box;
+}
+
+.form .fieldset-none{
+    border:none;
+    margin-inline: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    min-inline-size: 0;    
+}
+
+.form .input[type=text]{
+    width:100%;
+    padding: 0.5rem .75rem;
+    border:1px solid var(--color-bd);
+    border-radius: 0.35rem;
+    outline: none;
+}
+
+.form .input[type=text]:focus{
+    background-color: lightyellow;
+}
+
+
+/* table */
+
+/* list */
+.list{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+
+.list .item{
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125)
+}
+
+/* --- component --------------------------------------------------- */
+
+.btn {
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: .9rem;
+
+    border: 1px solid var(--color-bd);
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out;      
+    
+    display: inline-block;
+    padding: 0.4rem 0.9rem;    
+}
+
+.btn:hover{
+    background-color: #a8a8a8;
+    border-color: #858585;
+    color:#fff;
+}
+
+.btn-strong {
+    color: #fff;
+    background-color: #8cb34a;
+    border-color: #67921e;
+}
+
+.btn-strong:hover{
+    background-color: #669415;
+    border-color: #67921e;
+}
+
+
+/* --- <h1>14. 종합 1 : DND로 노드 순서 바꾸기</h1> --- */
+#s14 .box{
+    background-color: gray;
+    width: 100%;
+    height: 300px;
+    padding:10px;
+}
+
+#s14 .row {
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 1px;
+    padding:10px;
+    cursor: move;
+    
+}
+
+
+
+
+#s11 .d-none{
+    display: none;
+}
 #s11 .box{
     height: 300px;
     background-color: gray;
@@ -11,15 +243,35 @@
                 url(images/upload.svg)
                 no-repeat center top 100px;
     background-color: gray;
+
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    transition: background-position 1s;
 }
 
 #s11 .box.over{
     background: url(images/upload-box.svg)
+                no-repeat center top 120px,
+                url(images/upload.svg)
+                no-repeat center top 120px;
+    background-color: gray;
+}
+#s11 .box.over.error{
+    background:url(images/upload-box.svg)
+                no-repeat center top 120px,
+                url(images/upload-error.svg)
                 no-repeat center top 140px,
                 url(images/upload.svg)
                 no-repeat center top 120px;
     background-color: gray;
 }
+#s11 .box .error-message{
+    color:white;
+    position: relative;
+    top:70px;
+}
+
 #s10 .box{
     height: 300px;
     background-color: gray;

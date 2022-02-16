@@ -1,24 +1,79 @@
 window.addEventListener("load", function(){
     var section = document.querySelector("#s11"); 
     var box = section.querySelector(".box"); 
-
+    var errorMessage = box.querySelector(".error-message");
+    var uploadBox = section.querySelector(".upload-box");
     box.ondragenter = function(e){
-        box.classList.add("over");
         console.log("enter");
-    }
-    box.ondragleave= function(e){
+        box.classList.add("over");
+    };
+    box.ondragleave = function(e){
         console.log("leave");
         box.classList.remove("over");
-    }
-    box.ondragover= function(e){
+
+        box.classList.remove("error");
+        errorMessage.classList.add("d-none");
+    };
+    box.ondragover = function(e){
         e.preventDefault();
-        console.log("over");
+        console.log("over");        
+
+        var valid = e.dataTransfer
+                && e.dataTransfer.types
+                && (e.dataTransfer.types.indexOf("Files") >= 0);
+
+        console.log(e.dataTransfer.types);
+
+    if(!valid){
+        box.classList.add("error");
+        errorMessage.classList.remove("d-none");
     }
-    box.ondrag= function(e){
+
+    };
+    box.ondrop = function(e){
         e.preventDefault();
         console.log("drop");
+        var files = e.dataTransfer.files;
 
-    }
+        //if(files.length > 1){
+        //    alert("파일은 하나씩 전송할 수 있습니다");
+        //    box.classList.remove("over");
+        //    box.classList.remove("error");
+        //    errorMessage.classList.add("d-none");
+        //    return;
+        //}
+
+        var file = files[0];
+
+        //console.log(file.types);
+        //if(file.types.indexOf("images/") != 0){
+        //    alert("이미지 형식이 아닙니다");
+        //    box.classList.remove("over");
+        //    box.classList.remove("error");
+        //    errorMessage.classList.add("d-none");
+        //    return;
+        //}
+
+        //var size = file.size;
+        //if(size > 10*1024*1024){
+        //    alert("10메가 넘어감");
+        //    box.classList.remove("over");
+        //    box.classList.remove("error");
+        //    errorMessage.classList.add("d-none");
+        //    return;
+        //}
+
+        var reader = new FileReader();
+        reader.onload = function(e){
+            var img = document.createElement("img");
+            img.src = e.target.result;
+            img.style.height="100px";
+
+            uploadBox.appendChild(img);
+        }
+
+        reader.readAsDataURL(file);
+    };
 });
 // window.addEventListener("load", function(){
 //     var section = document.querySelector("#s10");    
