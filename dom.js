@@ -1,4 +1,41 @@
 window.addEventListener("load", function(){
+    var section = document.querySelector("#s12");
+    var input = section.querySelector(".form input[type=text]");
+
+    var register= section.querySelector(".form input[type=submit]");
+    var del= section.querySelector(".form input[type=submit] + input");
+
+    var list = section.querySelector(".member-list .list");
+    var items = section.querySelectorAll(".item");
+    var index = 0;
+
+    //추가
+    register.onclick = function(e){
+        e.preventDefault();
+        if(items.length > index){
+            items[index++].innerText = input.value;
+            return;
+        }
+
+        var li = document.createElement("li");
+        li.classList.add("item");
+        li.innerText = input.value;
+        list.appendChild(li);
+    }
+
+    //삭제
+    del.onclick = function(e){
+        e.preventDefault();
+        items = section.querySelectorAll(".item");
+
+        for(var i = 0; i < items.length; i++){
+           if(items[i].innerText == input.value){
+                items[i].remove(); 
+           }
+        }
+    }
+});
+window.addEventListener("load", function(){
     var section = document.querySelector("#s11"); 
     var box = section.querySelector(".box"); 
     var errorMessage = box.querySelector(".error-message");
@@ -10,7 +47,6 @@ window.addEventListener("load", function(){
     box.ondragleave = function(e){
         console.log("leave");
         box.classList.remove("over");
-
         box.classList.remove("error");
         errorMessage.classList.add("d-none");
     };
