@@ -12,15 +12,31 @@ window.addEventListener("load", function(){
     //추가
     register.onclick = function(e){
         e.preventDefault();
-        if(items.length > index){
-            items[index++].innerText = input.value;
-            return;
-        }
 
-        var li = document.createElement("li");
-        li.classList.add("item");
-        li.innerText = input.value;
-        list.appendChild(li);
+        if(list.children.length == 0)
+            list.classList.remove("empty");
+        // if(items.length > index){
+        //     items[index++].innerText = input.value;
+        //     return;
+        // }
+
+        //list.innerHTML += '<li class="item">' +input.value + '</li>';
+        //var li = document.createElement("li");
+        ////var text = document.createTextNode(input.value);
+        //li.append(input.value);
+        //li.classList.add("item");
+        //// li.innerText = input.value;
+        //// li.textContent = input.value;
+        //list.prepend(li);
+        //list.insertAdjacentElement("afterbegin", li);
+        // if(list.children.length == 0)
+        //     list.append(li);
+        // else
+        //     //list.insertBefore(li, list.firstElementChild);
+        //     list.firstElementChild.before(li);
+
+        var html = '<li class="item">' + input.value+'</li>';
+        list.insertAdjacentHTML("afterbegin", html);
     }
 
     //삭제
