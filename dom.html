@@ -22,7 +22,7 @@
                     <legend>회원정보</legend>
                     <div class="">
                         <label>이름:</label>
-                        <input type="text" name="uname" autocomplete="off">
+                        <input type="text" name="uname" autocomplete="off" required minlength="">
                     </div>
                     <div>
                         <input type="submit" name="regbtn" value="등록">
@@ -33,7 +33,11 @@
             </form>
         </section>
         <section class="member-list">
-            <h1>회원목록</h1>
+            <header class="section-header">
+                <h1>회원목록</h1>
+                <a href="" class="btn ml-auto btn-del-all">일괄 삭제</a>
+                <a href="" class="btn btn-del-first">첫항목 삭제</a>
+            </header>
             <ul class="list empty">
             </ul>
             

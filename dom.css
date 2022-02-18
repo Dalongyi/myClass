@@ -42,6 +42,11 @@ html{
     text-align: end !important;
 }
 
+.d-flex{
+    display: flex !important;
+
+}
+
 /* border */
 
 .border-0{
