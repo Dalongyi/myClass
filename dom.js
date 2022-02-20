@@ -1,126 +1,198 @@
+//     // img.parentElement;
+//     // img.previousElementSibling;
+//     // img.nextElementSibling;
+//     // img.children[0];
+//     // img.firstElementChild;
+//     // img.lastElementChild;
 
-//window.addEventListener("load", function(){
-//    var section = document.querySelector("#s12");
-//    var input = section.querySelector(".form  input[name=uname]");
-//    var list = section.querySelector(".list");
-//    var regbtn = section.querySelector(".form input[name=regbtn]")
-//
-//    regbtn.onclick = function(e){
-//        e.preventDefault();
-//
-//        var li = document.createElement('li');
-//        li.append(input.value);
-//        li.classList.add("item");
-//        list.append(li);
-//    }
-//
-//});
+//     // prepend()
+//     // append()
+//     // before()
+//     // after();
+//     // insetAdjacentElement();
+
+//     beforebegin
+//     afterbegin 
+//     beforeend 
+//     afterend 
+
+
 window.addEventListener("load", function(){
     var section = document.querySelector("#s12");
-    var input = section.querySelector(".form input[type=text]");
+    var input = section.querySelector(".form  input[name=uname]");
+    var list = section.querySelector(".list");
+    var regbtn = section.querySelector(".form input[name=regbtn]")
 
-    var register= section.querySelector(".form input[type=submit]");
-    var del= section.querySelector(".form input[type=submit] + input");
+    var btnDelAll = section.querySelector(".btn-del-all");
+    var btnDelFirst = section.querySelector(".btn-del-first");
 
-    var list = section.querySelector(".member-list .list");
-    var items = section.querySelectorAll(".item");
-    var delFirstBtn = section.querySelector(".btn-del-first");
-    var delAllBtn = section.querySelector(".btn-del-all");
-    var index = 0;
-
-
-    delAllBtn.onclick = function(e){
-        e.preventDefault();
-
-         var lis = list.children;
-         var size = lis.length;
-
-         for(var i = 0; i < size; i++){
-             var checkbox = lis[size - 1 - i].querySelector("input[type=checkbox]");
-
-             if(lis[size - 1 - i].querySelector(":checked"))
-                 lis[size - 1 - i].remove();
-         }
-
-        // var lis = list.children;
-
-        // for(var i = 0; i < lis.length; i++){
-        //     var checkbox = lis[i].querySelector("input[type=checkbox]");
-
-        //     if(checkbox.checked)
-        //         lis[i].remove();
-        // }
-
+    if(!input.checkValidity()) {
     }
-    //2.이벤트 처리와 대상이 목록일때
-    list.onclick= function(e){
-        if(!e.target.classList.contains("btn-close"))
+    list.onclick = function(e){
+        console.log(e.target);
+        if(!e.target.classList.contains("select-btn"))
             return;
         e.preventDefault();
+        if(!confirm("삭제?"))
+            return;
+       e.target.parentElement.remove(); 
 
-        console.log(e.target.parentElement);
-        if(confirm("정말 삭제하시겠습니까?"))
-            e.target.parentElement.remove();
+       if(list.children.length == 0)
+            list.classList.add("empty");
+    }
+    btnDelFirst.onclick = function(e){
+        e.preventDefault();
+        list.firstElementChild.remove();
 
         if(list.children.length == 0)
             list.classList.add("empty");
 
     }
-    //1.이벤트 처리와 대상이 하나 일때
-    delFirstBtn.onclick = function(e){
+    btnDelAll.onclick = function(e){
         e.preventDefault();
+        if(!confirm("정말 삭제?"))
+            return;
 
-        // var li = list.firstElementChild;
-        // list.removeChild(li);
-        list.firstChild.remove();
+        var lis = list.children;
+        var size = lis.length;
+        for(var i = 0; i < size; i++){
+            var chk= lis[size- i - 1].querySelector("input[type=checkbox]");
+            if(chk.checked)
+                lis[size - i - 1].remove();
+        }
+        //e.target.parenteElement.remove();
+
+        //if(list.childElementCount == 0)
+        //    list.classList.add("empty");
     }
-
-    //추가
-    register.onclick = function(e){
+    regbtn.onclick = function(e){
         if(!input.checkValidity()){
-            //alert("이름 입력 오류: " + input.validationMessage);
+            //alert(input.validationMessage);
             return;
         }
         e.preventDefault();
-
-        if(list.children.length == 0)
-            list.classList.remove("empty");
-        // if(items.length > index){
-        //     items[index++].innerText = input.value;
-        //     return;
-        // }
-
-        //list.innerHTML += '<li class="item">' +input.value + '</li>';
         //var li = document.createElement("li");
-        ////var text = document.createTextNode(input.value);
         //li.append(input.value);
         //li.classList.add("item");
-        //// li.innerText = input.value;
-        //// li.textContent = input.value;
-        //list.prepend(li);
-        //list.insertAdjacentElement("afterbegin", li);
-        // if(list.children.length == 0)
-        //     list.append(li);
-        // else
-        //     //list.insertBefore(li, list.firstElementChild);
-        //     list.firstElementChild.before(li);
-
-        var html = '<li class="item"><input class="mr-2" type="checkbox">' + input.value+'<a class="btn-close icon icon-close ml-auto" href="">삭제</a>' + '</li>';
-        list.insertAdjacentHTML("afterbegin", html);
+        //list.append(li);
+        var html = '<li class="item"><input type="checkbox">' + input.value + '<a href ="" class="select-btn">삭제</a></li>';
+        list.insertAdjacentHTML("afterbegin", html)
+        list.classList.remove("empty");
+        //var li = document.createElement('li');
+        //li.append(input.value);
+        //li.classList.add("item");
+        //list.append(li);
     }
 
-    //삭제
-    del.onclick = function(e){
-        e.preventDefault();
-        items = section.querySelectorAll(".item");
-
-        for(var i = 0; i < items.length; i++){
-           if(items[i].innerText == input.value){
-                items[i].remove(); 
-           }
-        }
-    }
 });
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s12");
+//    var input = section.querySelector(".form input[type=text]");
+//
+//    var register= section.querySelector(".form input[type=submit]");
+//    var del= section.querySelector(".form input[type=submit] + input");
+//
+//    var list = section.querySelector(".member-list .list");
+//    var items = section.querySelectorAll(".item");
+//    var delFirstBtn = section.querySelector(".btn-del-first");
+//    var delAllBtn = section.querySelector(".btn-del-all");
+//    var index = 0;
+//
+//
+//    delAllBtn.onclick = function(e){
+//        e.preventDefault();
+//
+//         var lis = list.children;
+//         var size = lis.length;
+//
+//         for(var i = 0; i < size; i++){
+//             var checkbox = lis[size - 1 - i].querySelector("input[type=checkbox]");
+//
+//             if(lis[size - 1 - i].querySelector(":checked"))
+//                 lis[size - 1 - i].remove();
+//         }
+//
+//        // var lis = list.children;
+//
+//        // for(var i = 0; i < lis.length; i++){
+//        //     var checkbox = lis[i].querySelector("input[type=checkbox]");
+//
+//        //     if(checkbox.checked)
+//        //         lis[i].remove();
+//        // }
+//
+//    }
+//    //2.이벤트 처리와 대상이 목록일때
+//    list.onclick= function(e){
+//        if(!e.target.classList.contains("btn-close"))
+//            return;
+//        e.preventDefault();
+//
+//        console.log(e.target.parentElement);
+//        if(confirm("정말 삭제하시겠습니까?"))
+//            e.target.parentElement.remove();
+//
+//        if(list.children.length == 0)
+//            list.classList.add("empty");
+//
+//    }
+//    //1.이벤트 처리와 대상이 하나 일때
+//    delFirstBtn.onclick = function(e){
+//        e.preventDefault();
+//
+//        // var li = list.firstElementChild;
+//        // list.removeChild(li);
+//        list.firstChild.remove();
+//    }
+//
+//    //추가
+//    register.onclick = function(e){
+//        if(!input.checkValidity()){
+//            //alert("이름 입력 오류: " + input.validationMessage);
+//            return;
+//        }
+//
+//
+//        e.preventDefault();
+//
+//        if(list.children.length == 0)
+//            list.classList.remove("empty");
+//        // if(items.length > index){
+//        //     items[index++].innerText = input.value;
+//        //     return;
+//        // }
+//
+//        //list.innerHTML += '<li class="item">' +input.value + '</li>';
+//        //var li = document.createElement("li");
+//        ////var text = document.createTextNode(input.value);
+//        //li.append(input.value);
+//        //li.classList.add("item");
+//        //// li.innerText = input.value;
+//        //// li.textContent = input.value;
+//        //list.prepend(li);
+//        //list.insertAdjacentElement("afterbegin", li);
+//        // if(list.children.length == 0)
+//        //     list.append(li);
+//        // else
+//        //     //list.insertBefore(li, list.firstElementChild);
+//        //     list.firstElementChild.before(li);
+//
+//        var html = '<li class="item"><input class="mr-2" type="checkbox">' + input.value+'<a class="btn-close icon icon-close ml-auto" href="">삭제</a>' + '</li>';
+//        list.insertAdjacentHTML("afterbegin", html);
+//    }
+//
+//    //삭제
+//    del.onclick = function(e){
+//        e.preventDefault();
+//        items = section.querySelectorAll(".item");
+//
+//        for(var i = 0; i < items.length; i++){
+//           if(items[i].innerText == input.value){
+//                items[i].remove(); 
+//           }
+//        }
+//    }
+//});
 window.addEventListener("load", function(){
     var section = document.querySelector("#s11"); 
     var box = section.querySelector(".box"); 
