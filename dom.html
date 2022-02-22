@@ -32,16 +32,29 @@
                 </fieldset>
             </form>
         </section>
-        <section class="member-list">
-            <header class="section-header">
-                <h1>회원목록</h1>
-                <a href="" class="btn ml-auto btn-del-all">일괄 삭제</a>
-                <a href="" class="btn btn-del-first">첫항목 삭제</a>
+        <section class="list">
+            <h1>회원목록</h1>
+                <a class="btn btn-del-first" href="">첫항목 삭제하기</a>
+                <a class="btn ml-auto btn-del-all" href="">일괄삭제</a>
+                <a class="btn btn-change" href="">바꾸기</a>
+                <a class="btn btn-disable" href="">비활성 회원으로</a>
             </header>
-            <ul class="list empty">
-            </ul>
             
-        </section>
+            <section>
+                <h1>활성회원</h1>
+                <ul class="list-en">
+                    <li class="item"><input class="mr-2" type="checkbox">이순신<a class="btn-close icon icon-close ml-auto" href="">삭제</a></li>
+                    <li class="item"><input class="mr-2" type="checkbox">감강찬<a class="btn-close icon icon-close ml-auto" href="">삭제</a></li>
+                    <li class="item"><input class="mr-2" type="checkbox">강호동<a class="btn-close icon icon-close ml-auto" href="">삭제</a></li>
+                    <li class="item"><input class="mr-2" type="checkbox">유재석<a class="btn-close icon icon-close ml-auto" href="">삭제</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>비활성회원</h1>
+                <ul class = "list-di">
+                    <li class="item"><input class="mr-2" type="checkbox">홍길동<a class="btn-close icon icon-close ml-auto" href="">삭제</a></li>
+                </ul>
+            </section>
     </section> 
     <hr>
     <section id="s11">

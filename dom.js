@@ -25,8 +25,39 @@ window.addEventListener("load", function(){
 
     var btnDelAll = section.querySelector(".btn-del-all");
     var btnDelFirst = section.querySelector(".btn-del-first");
+    var btnChange = section.querySelector(".btn-change");
 
+    var disabledButton = section.querySelector(".btn-disabled");
+
+    disabledButton.onclick = function(e){
+        e.preventDefault();
+
+        var selected = Array.from(list.querySelector("input:checked")).map(function(){
+            return input.parentElement;
+        })
+    };
     if(!input.checkValidity()) {
+    }
+
+    btnChange.onclick = function(e){
+        e.preventDefault();
+
+        var inputs = Array.from(list.querySelectorAll("input:checked"));
+
+        var lis = inputs.map(function(input){
+                    return input.parentElement;
+        });
+
+        var first = lis[0];
+        var second = lis[1];
+        //var first= list.children[0];
+        //var second = list.children[1];
+        // var detached = list.removeChild(second);
+        // list.insertBefore(detached, first);
+        var next = first.nextElementSibling;
+        // var detached = list.replaceChild(first, second);
+        second.replaceWith(first);
+        next.before(second);
     }
     list.onclick = function(e){
         console.log(e.target);
@@ -53,14 +84,20 @@ window.addEventListener("load", function(){
         if(!confirm("정말 삭제?"))
             return;
 
-        var lis = list.children;
-        var size = lis.length;
-        for(var i = 0; i < size; i++){
-            var chk= lis[size- i - 1].querySelector("input[type=checkbox]");
-            if(chk.checked)
-                lis[size - i - 1].remove();
-        }
+        // var lis = list.children;
+        // var size = lis.length;
+        // for(var i = 0; i < size; i++){
+        //     var chk= lis[size- i - 1].querySelector("input[type=checkbox]");
+        //     if(chk.checked)
+        //         lis[size - i - 1].remove();
+        // }
         //e.target.parenteElement.remove();
+
+        var inputs = list.querySelectorAll("input:not(:checked)");
+
+        console.log(inputs);
+        for(var i=0; i <inputs.length; i++)
+            inputs[i].parentElement.remove();
 
         //if(list.childElementCount == 0)
         //    list.classList.add("empty");
