@@ -28,6 +28,7 @@ window.addEventListener("load", function(){
     var btnChange = section.querySelector(".btn-change");
 
     var disabledButton = section.querySelector(".btn-disabled");
+    var disabledButton = section.querySelector(".btn-disabled");
 
     disabledButton.onclick = function(e){
         e.preventDefault();
@@ -35,6 +36,7 @@ window.addEventListener("load", function(){
         var selected = Array.from(list.querySelector("input:checked")).map(function(){
             return input.parentElement;
         })
+
     };
     if(!input.checkValidity()) {
     }
