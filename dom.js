@@ -26,40 +26,70 @@ window.addEventListener("load", function(){
     var btnDelAll = section.querySelector(".btn-del-all");
     var btnDelFirst = section.querySelector(".btn-del-first");
     var btnChange = section.querySelector(".btn-change");
+    var btnDisable = section.querySelector(".btn-disable");
 
-    var disabledButton = section.querySelector(".btn-disabled");
-    var disabledButton = section.querySelector(".btn-disabled");
+    var listEn = section.querySelector(".list-en");
+    var listDi= section.querySelector(".list-di");
 
-    disabledButton.onclick = function(e){
-        e.preventDefault();
+    //    e.preventDefault();
 
-        var selected = Array.from(list.querySelector("input:checked")).map(function(){
-            return input.parentElement;
-        })
+    //    var selected = Array.from(list.querySelector("input:checked")).map(function(){
+    //        return input.parentElement;
+    //    })
 
-    };
+    //};
     if(!input.checkValidity()) {
     }
+
+    btnDisable.onclick = function(e){
+        e.preventDefault();
+
+        var selectedLis = Array.from(list.querySelectorAll("input:checked")).map(function(i){
+            return i.parentElement;
+        });
+
+        var disableList= listDi.children;
+       
+        listDi.replaceChildren(...selectedLis, ...disableList);
+    };
 
     btnChange.onclick = function(e){
         e.preventDefault();
 
-        var inputs = Array.from(list.querySelectorAll("input:checked"));
-
-        var lis = inputs.map(function(input){
-                    return input.parentElement;
+        var checks= list.querySelectorAll("input:checked");
+        var items =  Array.from(checks).map(function(i){
+                return i.parentElement;
         });
 
-        var first = lis[0];
-        var second = lis[1];
-        //var first= list.children[0];
-        //var second = list.children[1];
-        // var detached = list.removeChild(second);
-        // list.insertBefore(detached, first);
+        var first = items[0];
+        var second = items[1];
+
         var next = first.nextElementSibling;
-        // var detached = list.replaceChild(first, second);
         second.replaceWith(first);
-        next.before(second);
+        
+        if(next === second)
+            items[0].before(second); 
+        else
+            next.before(second); 
+
+
+        // second.replaceWith(first);
+        //var inputs = Array.from(list.querySelectorAll("input:checked"));
+
+        //var lis = inputs.map(function(input){
+        //            return input.parentElement;
+        //});
+
+        //var first = lis[0];
+        //var second = lis[1];
+        ////var first= list.children[0];
+        ////var second = list.children[1];
+        //// var detached = list.removeChild(second);
+        //// list.insertBefore(detached, first);
+        //var next = first.nextElementSibling;
+        //// var detached = list.replaceChild(first, second);
+        //second.replaceWith(first);
+        //next.before(second);
     }
     list.onclick = function(e){
         console.log(e.target);
@@ -79,31 +109,39 @@ window.addEventListener("load", function(){
 
         if(list.children.length == 0)
             list.classList.add("empty");
-
     }
+
     btnDelAll.onclick = function(e){
         e.preventDefault();
-        if(!confirm("정말 삭제?"))
-            return;
 
-        // var lis = list.children;
-        // var size = lis.length;
-        // for(var i = 0; i < size; i++){
-        //     var chk= lis[size- i - 1].querySelector("input[type=checkbox]");
-        //     if(chk.checked)
-        //         lis[size - i - 1].remove();
-        // }
-        //e.target.parenteElement.remove();
-
-        var inputs = list.querySelectorAll("input:not(:checked)");
-
-        console.log(inputs);
-        for(var i=0; i <inputs.length; i++)
-            inputs[i].parentElement.remove();
-
-        //if(list.childElementCount == 0)
-        //    list.classList.add("empty");
+        var checkList = Array.from(list.querySelectorAll("input:checked")).map(function(i){
+                i.parentElement.remove();
+        });
+        console.log(checkList);
     }
+    //btnDelAll.onclick = function(e){
+    //    e.preventDefault();
+    //    if(!confirm("정말 삭제?"))
+    //        return;
+
+    //    // var lis = list.children;
+    //    // var size = lis.length;
+    //    // for(var i = 0; i < size; i++){
+    //    //     var chk= lis[size- i - 1].querySelector("input[type=checkbox]");
+    //    //     if(chk.checked)
+    //    //         lis[size - i - 1].remove();
+    //    // }
+    //    //e.target.parenteElement.remove();
+
+    //    var inputs = list.querySelectorAll("input:not(:checked)");
+
+    //    console.log(inputs);
+    //    for(var i=0; i <inputs.length; i++)
+    //        inputs[i].parentElement.remove();
+
+    //    //if(list.childElementCount == 0)
+    //    //    list.classList.add("empty");
+    //}
     regbtn.onclick = function(e){
         if(!input.checkValidity()){
             //alert(input.validationMessage);
