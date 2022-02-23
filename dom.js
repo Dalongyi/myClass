@@ -16,7 +16,56 @@
 //     beforeend 
 //     afterend 
 
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s13");
+    var box = section.querySelector(".box");
+    var dragged = null;
 
+    box.ondrag = function(e){
+
+    };
+
+    box.ondragstart = function(e){
+        dragged = e.target;
+        dragged.classList.add("dragging");
+    };
+    box.ondragend= function(e){
+        dragged.classList.remove("dragging");
+
+
+        var items = box.querySelectorAll(".row");
+        for(var i = 0; i <items.length; i++)
+            items[i].classList.remove("drop-item");
+    };
+    box.ondragenter= function(e){
+        e.preventDefault();
+        //e.target.classList.add("drop-item");
+        var items = box.querySelectorAll(".row:not(.dragging)")
+        var top = e.y - box.offsetTop;
+
+        for(var i = 0; i<items.length; i++){
+            if(items[i].pageY > top && items[i].pageY + items[i].offsetHeight < top){
+                items[i].classList.add("drop-item");
+
+                console.log(top);
+                console.log(items[i].offsetTop);
+            }
+            else
+                items[i].classList.remove("drop-item");
+        }
+    };
+    box.ondragleave= function(e){
+        e.target.classList.remove("drop-item");
+    };
+    box.ondragover= function(e){
+        e.preventDefault();
+
+    };
+
+    box.ondrop= function(e){
+
+    };
+});
 window.addEventListener("load", function(){
     var section = document.querySelector("#s12");
     var input = section.querySelector(".form  input[name=uname]");
