@@ -24,47 +24,85 @@ window.addEventListener("load", function(){
     box.ondrag = function(e){
 
     };
-
     box.ondragstart = function(e){
         dragged = e.target;
         dragged.classList.add("dragging");
-    };
+        // 젤먼저 실행
+    }
     box.ondragend= function(e){
+        // 마지막 실행
         dragged.classList.remove("dragging");
 
-
         var items = box.querySelectorAll(".row");
-        for(var i = 0; i <items.length; i++)
+        for(var i = 0; i < items.length; i++){
             items[i].classList.remove("drop-item");
-    };
+        }
+    }
     box.ondragenter= function(e){
         e.preventDefault();
-        //e.target.classList.add("drop-item");
-        var items = box.querySelectorAll(".row:not(.dragging)")
-        var top = e.y - box.offsetTop;
-
-        for(var i = 0; i<items.length; i++){
-            if(items[i].pageY > top && items[i].pageY + items[i].offsetHeight < top){
-                items[i].classList.add("drop-item");
-
-                console.log(top);
-                console.log(items[i].offsetTop);
-            }
-            else
-                items[i].classList.remove("drop-item");
-        }
-    };
+        console.
+        
+        e.target.classList.add("drop-item");
+        
+    }
     box.ondragleave= function(e){
+
         e.target.classList.remove("drop-item");
-    };
+        
+    }
+
     box.ondragover= function(e){
         e.preventDefault();
-
-    };
-
+    }
     box.ondrop= function(e){
 
-    };
+    }
+    //box.ondrag = function(e){
+
+    //};
+
+    //box.ondragstart = function(e){
+    //    dragged = e.target;
+    //    dragged.classList.add("dragging");
+    //};
+    //box.ondragend= function(e){
+    //    dragged.classList.remove("dragging");
+
+
+    //    var items = box.querySelectorAll(".row");
+    //    for(var i = 0; i <items.length; i++)
+    //        items[i].classList.remove("drop-item");
+    //};
+    //box.ondragenter= function(e){
+    //    e.preventDefault();
+    //    //e.target.classList.add("drop-item");
+    //    var items = box.querySelectorAll(".row:not(.dragging)")
+    //    var top = e.y - box.offsetTop;
+
+    //    console.log(e.pageY);
+
+    //    for(var i = 0; i<items.length; i++){
+    //        if(items[i].pageY > top && items[i].pageY + items[i].offsetHeight < top){
+    //            items[i].classList.add("drop-item");
+
+    //            console.log(top);
+    //            console.log(items[i].offsetTop);
+    //        }
+    //        else
+    //            items[i].classList.remove("drop-item");
+    //    }
+    //};
+    //box.ondragleave= function(e){
+    //    e.target.classList.remove("drop-item");
+    //};
+    //box.ondragover= function(e){
+    //    e.preventDefault();
+
+    //};
+
+    //box.ondrop= function(e){
+
+    //};
 });
 window.addEventListener("load", function(){
     var section = document.querySelector("#s12");
@@ -419,34 +457,44 @@ window.addEventListener("load", function(){
 window.addEventListener("load", function(){
     var section = document.querySelector("#s10");
     var box = section.querySelector(".box");
-    var item = box.querySelector(".item");
-    var offset = {x:0, y:0};
-    var isclick = false;
-    box.onclick = function(e){
-    }
-
+    var items = section.querySelectorAll(".item");
+    console.log(items);
     box.onmousemove = function(e){
-        if(!isclick)
-            return;
-        item.style.left = e.pageX - box.offsetLeft - offset.x + "px";
-        item.style.top = e.pageY - box.offsetTop - offset.y + "px";
-    }
-
-    box.onmousedown = function(e){
-        if(!e.target.classList.contains("item"))
-            return;
-        offset.x = e.offsetX;
-        offset.y = e.offsetY;
-        isclick = true;
-
-        item = e.target;
-    }
-
-    box.onmouseup = function(e){
-        isclick = false; 
-    }
-
+        items[0].style.left = e.x + "px";
+        items[0].style.top = e.y + "px";
+    };
 });
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s10");
+//    var box = section.querySelector(".box");
+//    var item = box.querySelector(".item");
+//    var offset = {x:0, y:0};
+//    var isclick = false;
+//    box.onclick = function(e){
+//    }
+//
+//    box.onmousemove = function(e){
+//        if(!isclick)
+//            return;
+//        item.style.left = e.pageX - box.offsetLeft - offset.x + "px";
+//        item.style.top = e.pageY - box.offsetTop - offset.y + "px";
+//    }
+//
+//    box.onmousedown = function(e){
+//        if(!e.target.classList.contains("item"))
+//            return;
+//        offset.x = e.offsetX;
+//        offset.y = e.offsetY;
+//        isclick = true;
+//
+//        item = e.target;
+//    }
+//
+//    box.onmouseup = function(e){
+//        isclick = false; 
+//    }
+//
+//});
 //window.addEventListener("load", function(){
 //    var section = document.querySelector("#s10");
 //    var box = section.querySelector(".box");
