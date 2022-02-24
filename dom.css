@@ -222,9 +222,10 @@ li{
     position: absolute;
     left:0;
     top:0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.445);
     width:100vw;
     height: 100vh;
+    z-index: 100;
 
     display: flex;
     justify-content: center;

@@ -17,6 +17,23 @@
 //     afterend 
 
 window.addEventListener("load", function(){
+    var section = document.querySelector("#s14");
+    var delButton = section.querySelector(".btn-del");
+
+    delButton.onclick = function(e){
+        e.preventDefault();
+
+        var dlg = new Dialog();
+        //dlg.show("입력값이 잘못되었습니다");
+        if(dlg.confirm("정말 삭제하시겠습니까?"))
+            console.log("삭제되었습니다");
+
+    }
+});
+
+
+
+window.addEventListener("load", function(){
     var section = document.querySelector("#s13");
     var box = section.querySelector(".box");
     var dragged = null;
@@ -144,6 +161,10 @@ window.addEventListener("load", function(){
         e.preventDefault();
 
         var checks= list.querySelectorAll("input:checked");
+        if(checks.length != 2){
+            alert("아이템은 두개 선택");
+            return;
+        }
         var items =  Array.from(checks).map(function(i){
                 return i.parentElement;
         });
@@ -155,7 +176,7 @@ window.addEventListener("load", function(){
         second.replaceWith(first);
         
         if(next === second)
-            items[0].before(second); 
+            first.before(second); 
         else
             next.before(second); 
 
