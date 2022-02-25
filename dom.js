@@ -16,30 +16,11 @@
 //     beforeend 
 //     afterend 
 
-<<<<<<< HEAD
 function Aaa(){
     this.m = 10;
 }
 
 var test = {
-=======
-//var animals = [
-//    {species:'Lion', name:'King'},
-//    {species:'Whale', name:'Fail'},
-//]
-//
-//var print = function(i){
-//    console.log('#' + i + ' ' + this.species +' '+ this.name);
-//}
-//print(0);
-////print.call(animals[0], 0);
-//
-//var onclick = print.bind(animals[1]);
-//
-//onclick(1);
-
-var exam = {
->>>>>>> acc74f115841ebdd48818d8292954f8813613fd8
     kor:0,
     eng:10,
     total:function(){
@@ -47,7 +28,6 @@ var exam = {
     }
 }
 
-<<<<<<< HEAD
 Aaa.prototype = test; 
 
 var a = new Aaa();
@@ -70,26 +50,6 @@ var print = function(i){
 print = print.bind(animals[1]);
 print(10);
 
-=======
-function NewlecExam(){
-    this.com = 0;
-}
-
-NewlecExam.prototype = exam;
-
-var ne1 = new NewlecExam();
-var ne2 = new NewlecExam();
-
-Array.prototype.aa = function(){
-    console.log("메롱~~~~");
-}
-
-var arr = [];
-
-console.log(arr.aa());
-
-ne1.total();
->>>>>>> acc74f115841ebdd48818d8292954f8813613fd8
 window.addEventListener("load", function(){
     var section = document.querySelector("#s14");
     var delButton = section.querySelector(".btn-del");
@@ -99,11 +59,7 @@ window.addEventListener("load", function(){
 
         var dlg = new Dialog();
         //dlg.show("입력값이 잘못되었습니다");
-<<<<<<< HEAD
         if(dlg.confirm("정말 삭제하시겠습니까?", "메롱"))
-=======
-        if(dlg.confirm("정말 삭제하시겠습니까?","알림"))
->>>>>>> acc74f115841ebdd48818d8292954f8813613fd8
             console.log("삭제되었습니다");
 
     }
