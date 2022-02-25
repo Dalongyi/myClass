@@ -23,8 +23,15 @@ Dialog.prototype = {
             </div> \
         </div>';
 
-        this.section.insertAdjacentHTML("beforeend",html);
-        var cancelButton = this.section.querySelector(".btn-cancel");
+        document.body.insertAdjacentElement("beforeend",html);
+        //this.section.insertAdjacentHTML("beforeend",html);
+        //var cancelButton = this.section.querySelector(".btn-cancel");
+
+        ////var s = this.section;
+        //cancelButton.onclick = function(e){
+        //    e.preventDefault();
+        //    this.section.querySelector(".screen").remove();
+        //}.bind(this);
 
         var s = this.section;
         cancelButton.onclick = function(e){
