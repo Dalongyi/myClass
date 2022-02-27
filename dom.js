@@ -1523,7 +1523,10 @@ window.addEventListener("load", function(){
     var section = document.querySelector("#s3");
     var btn = section.querySelector(".box");
     var screen = section.querySelector(".box > input[type=text]");
-    
+    var isOperationState = false;
+    var isResultState = false;
+    var calculateValue = "";
+
     btn.onclick = function(e){
         e.preventDefault();
 
@@ -1531,11 +1534,25 @@ window.addEventListener("load", function(){
             return;
 
         var v = e.target.value;
-        if( v == "*" || v == "/" || v == "+" || v == "-")
-            
+        if(v == "*" || v == "/" || v == "+" || v == "-"){
+            if(isResultState){
+                screen.value = "";
+                screen.value = eval(calculateValue + screen.value);
+                isResultState = false;
+            }
+            else{
+                calculateValue = screen.value + v; 
+                isResultState = true;
+            }
+            return;
+        }
 
-        if(screen.value == 0)
+        if(screen.value == "0")
             screen.value = "";
+        
+        if(isResultState)
+            screen.value = "";
+
 
         screen.value += e.target.value;
     }
