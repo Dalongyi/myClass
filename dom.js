@@ -56,6 +56,22 @@ var arr = [];
 
 console.log(arr.aa());
 
+var proto = {
+    total:function(){
+        console.log("total is ...");
+    }
+}
+
+var exam = Object.create(proto);
+console.log(exam.__proto__);
+var examProto = exam.__proto__;
+console.log(Object.hasOwn(examProto, "total"));
+console.log(exam.hasOwnProperty("total"));
+
+exam.total();
+
+var exam = Object.create(proto);
+
 ne1.total();
 window.addEventListener("load", function(){
     var section = document.querySelector("#s14");
