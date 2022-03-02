@@ -26,6 +26,7 @@ Dialog.prototype = {
         </div>';
 
         document.body.insertAdjacentElement("beforeend",html);
+        var style = document.create
         //this.section.insertAdjacentHTML("beforeend",html);
         //var cancelButton = this.section.querySelector(".btn-cancel");
 

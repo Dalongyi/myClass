@@ -16,22 +16,11 @@
 //     beforeend 
 //     afterend 
 
-//var animals = [
-//    {species:'Lion', name:'King'},
-//    {species:'Whale', name:'Fail'},
-//]
-//
-//var print = function(i){
-//    console.log('#' + i + ' ' + this.species +' '+ this.name);
-//}
-//print(0);
-////print.call(animals[0], 0);
-//
-//var onclick = print.bind(animals[1]);
-//
-//onclick(1);
+function Aaa(){
+    this.m = 10;
+}
 
-var exam = {
+var test = {
     kor:0,
     eng:10,
     total:function(){
@@ -39,11 +28,27 @@ var exam = {
     }
 }
 
-function NewlecExam(){
-    this.com = 0;
+Aaa.prototype = test; 
+
+var a = new Aaa();
+
+a.total();
+console.log(a.m);
+
+// 프로토타입 받아오기 
+console.log(a.__proto__);
+
+var animals = [ 
+    {species:'Lion', name:'King'},
+    {species:'Tiger', name:'Fail'}
+];
+
+var print = function(i){
+    console.log("#" + i + ' ' + this.species + ': ' + this.name);
 }
 
-NewlecExam.prototype = exam;
+print = print.bind(animals[1]);
+print(10);
 
 var ne1 = new NewlecExam();
 var ne2 = new NewlecExam();
@@ -82,7 +87,7 @@ window.addEventListener("load", function(){
 
         var dlg = new Dialog();
         //dlg.show("입력값이 잘못되었습니다");
-        if(dlg.confirm("정말 삭제하시겠습니까?","알림"))
+        if(dlg.confirm("정말 삭제하시겠습니까?", "메롱"))
             console.log("삭제되었습니다");
 
     }
@@ -1398,50 +1403,50 @@ window.addEventListener("load", function(){
 //});
 
 // 3-1)숙제 계산기
-window.addEventListener("load", function(){
-    var section = document.getElementById("s3-1");
-    var txtInfo = section.querySelector(".box > input");
-    var buffer = "";
-    var isOperationState = false;
-    var isResult = false;
-
-    section.onclick = function(e){
-        e.preventDefault();
-
-        if(e.target.nodeName == "DIV")
-            return;
-
-        if(txtInfo.value == "0")
-            txtInfo.value = "";
-
-        var operation = e.target.value;
-
-        if(operation == "+" || 
-            operation == "-" ||
-            operation == "*" ||
-            operation == "/" ||
-            operation == "="){
-            e.stopPropagation();
-            if(isResult){
-                buffer += txtInfo.value;
-                txtInfo.value = eval(buffer);
-                isResult = false;
-            }
-
-            isOperationState = true;
-            buffer = txtInfo.value + operation;
-            return;
-        }
-
-        if(isOperationState){
-            txtInfo.value="";
-            isResult = true;
-            isOperationState = false;
-        }
-
-        txtInfo.value += e.target.value;
-    }
-});
+//window.addEventListener("load", function(){
+//    var section = document.getElementById("s3-1");
+//    var txtInfo = section.querySelector(".box > input");
+//    var buffer = "";
+//    var isOperationState = false;
+//    var isResult = false;
+//
+//    section.onclick = function(e){
+//        e.preventDefault();
+//
+//        if(e.target.nodeName == "DIV")
+//            return;
+//
+//        if(txtInfo.value == "0")
+//            txtInfo.value = "";
+//
+//        var operation = e.target.value;
+//
+//        if(operation == "+" || 
+//            operation == "-" ||
+//            operation == "*" ||
+//            operation == "/" ||
+//            operation == "="){
+//            e.stopPropagation();
+//            if(isResult){
+//                buffer += txtInfo.value;
+//                txtInfo.value = eval(buffer);
+//                isResult = false;
+//            }
+//
+//            isOperationState = true;
+//            buffer = txtInfo.value + operation;
+//            return;
+//        }
+//
+//        if(isOperationState){
+//            txtInfo.value="";
+//            isResult = true;
+//            isOperationState = false;
+//        }
+//
+//        txtInfo.value += e.target.value;
+//    }
+//});
 //<h1>3. 이벤트 객체 : 개선된 계산기</h1> -------------------------
 //window.addEventListener("load", function(){
 //    var section = document.querySelector("#s3");    
@@ -1511,17 +1516,17 @@ window.addEventListener("load", function(){
 //    };
 //
 //});
-window.addEventListener("load", function(){
-    var section = document.querySelector("#s3");
-    var txtInfo = section.querySelector("input[type]");
-    var box = section.querySelector(".box");
+// window.addEventListener("load", function(){
+//     var section = document.querySelector("#s3");
+//     var txtInfo = section.querySelector("input[type]");
+//     var box = section.querySelector(".box");
 
-    box.onclick = function(e){
-        e.preventDefault();
-        txtInfo.value = e.target.value;
-        console.log(e.target.classList[1]);
-    }
-});
+//     box.onclick = function(e){
+//         e.preventDefault();
+//         txtInfo.value = e.target.value;
+//         console.log(e.target.classList[1]);
+//     }
+// });
 
 // 1. 노드 선택방법 -------------------------------------------
 //window.addEventListener("load", function(){
@@ -1543,17 +1548,55 @@ window.addEventListener("load", function(){
 //
 //});
 window.addEventListener("load", function(){
-    var section = document.querySelector("#s2");
-    var x = section.querySelector(".x-input");
-    var y = section.querySelector(".y-input");
-    var plusButton = section.querySelector(".button");
-    var result = section.querySelector("div>span>span+span");
+    var section = document.querySelector("#s3");
+    var btn = section.querySelector(".box");
+    var screen = section.querySelector(".box > input[type=text]");
+    var isOperationState = false;
+    var isResultState = false;
+    var calculateValue = "";
 
-    plusButton.onclick = function(){
-        result.innerText = parseInt(x.value) + parseInt(y.value);
+    btn.onclick = function(e){
+        e.preventDefault();
+
+        if(e.target.tagName == "DIV")
+            return;
+
+        var v = e.target.value;
+        if(v == "*" || v == "/" || v == "+" || v == "-"){
+            if(isResultState){
+                screen.value = "";
+                screen.value = eval(calculateValue + screen.value);
+                isResultState = false;
+            }
+            else{
+                calculateValue = screen.value + v; 
+                isResultState = true;
+            }
+            return;
+        }
+
+        if(screen.value == "0")
+            screen.value = "";
+        
+        if(isResultState)
+            screen.value = "";
+
+
+        screen.value += e.target.value;
     }
-
-});
+})
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s2");
+//    var x = section.querySelector(".x-input");
+//    var y = section.querySelector(".y-input");
+//    var plusButton = section.querySelector(".button");
+//    var result = section.querySelector("div>span>span+span");
+//
+//    plusButton.onclick = function(){
+//        result.innerText = parseInt(x.value) + parseInt(y.value);
+//    }
+//
+//});
 
 //window.addEventListener("load", function(){
 //    // --- 초기화 ----------------
@@ -1572,20 +1615,52 @@ window.addEventListener("load", function(){
 //    }
 //
 //});
+
+//
+window.addEventListener("load", function(){
+    var section = document.querySelector("#s2");
+    var xInput = section.querySelector(".x-input");  
+    var yInput = section.querySelector(".y-input");  
+    var btn = section.querySelector(".button");
+    var result = section.querySelector(".result-span");
+
+    btn.onclick = function(e){
+       if(xInput.value == 0 || yInput.value == 0) {
+            alert("숫자 두개를 입력하세요");
+            return;
+       }
+
+       result.innerText = parseInt(xInput.value) + parseInt(yInput.value);
+    }
+});
+
+//window.addEventListener("load", function(){
+//    var section = document.querySelector("#s1");
+//    var box = section.querySelector(".input");
+//    var clickButton= section.querySelector(".button");
+//    var btn1 = document.getElementById("btn1");
+//
+//    clickButton.onclick = function(){
+//        box.value = "방가요";
+//    }
+//
+//    btn1.onclick = function(){
+//        var x = prompt("x값을 입력하세요");
+//        var y = prompt("y값을 입력하세요");
+//        box.value = parseInt(x) + parseInt(y);
+//    };
+//
+//});
+
 window.addEventListener("load", function(){
     var section = document.querySelector("#s1");
-    var box = section.querySelector(".input");
-    var clickButton= section.querySelector(".button");
-    var btn1 = document.getElementById("btn1");
+    var inputBox = section.querySelector(".input");
+    var btn = section.querySelector(".btn1");
+   
+    btn.onclick = function(e){
+        var x = prompt("x값을 입력하싱오");
+        var y = prompt("y값을 입력하싱오");
 
-    clickButton.onclick = function(){
-        box.value = "방가요";
+        inputBox.value = parseInt(x) + parseInt(y);
     }
-
-    btn1.onclick = function(){
-        var x = prompt("x값을 입력하세요");
-        var y = prompt("y값을 입력하세요");
-        box.value = parseInt(x) + parseInt(y);
-    };
-
 });
